@@ -1,0 +1,82 @@
+#!/var/ossec/framework/python/bin/python3
+# -*- coding: utf-8 -*-
+"""
+Wazuh → Smart Topology NOC  (Wazuh custom integration)
+
+ติดตั้งบนเครื่อง Wazuh Manager:
+    cp custom-smarttopology /var/ossec/integrations/custom-smarttopology
+    chmod 750 /var/ossec/integrations/custom-smarttopology
+    chown root:wazuh /var/ossec/integrations/custom-smarttopology
+
+ตั้งค่าใน /var/ossec/etc/ossec.conf:
+    <integration>
+      <name>custom-smarttopology</name>
+      <hook_url>https://NOC-IP:3000/api/v1/integrations/wazuh</hook_url>
+      <api_key>stk_xxxxxxxx (API Key ประเภท integration จาก Smart Topology)</api_key>
+      <level>7</level>
+      <alert_format>json</alert_format>
+    </integration>
+
+Wazuh integratord จะเรียกสคริปต์นี้ด้วย argument: <alert_file> <api_key> <hook_url> [options_file]
+บันทึกผลการทำงานที่ /var/ossec/logs/integrations.log
+"""
+import json
+import ssl
+import sys
+import time
+import urllib.error
+import urllib.request
+
+# ตรวจใบรับรอง SSL ของ Smart Topology (ตั้งเป็น False ได้ถ้าใช้ self-signed certificate ภายใน)
+VERIFY_TLS = True
+TIMEOUT = 10
+LOG_FILE = "/var/ossec/logs/integrations.log"
+
+
+def log(msg):
+    try:
+        with open(LOG_FILE, "a", encoding="utf-8") as f:
+            f.write("%s custom-smarttopology: %s\n" % (time.strftime("%Y/%m/%d %H:%M:%S"), msg))
+    except Exception:
+        print(msg, file=sys.stderr)
+
+
+def main(argv):
+    if len(argv) < 4:
+        log("ต้องการ argument: <alert_file> <api_key> <hook_url>")
+        return 2
+    alert_file, api_key, hook_url = argv[1], argv[2], argv[3]
+    try:
+        with open(alert_file, encoding="utf-8") as f:
+            alert = json.load(f)
+    except Exception as e:  # noqa: BLE001
+        log("อ่านไฟล์ alert ไม่ได้: %s" % e)
+        return 1
+
+    body = json.dumps(alert, ensure_ascii=False).encode("utf-8")
+    req = urllib.request.Request(hook_url, data=body, method="POST", headers={
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + api_key,
+        "User-Agent": "Wazuh-Integration/SmartTopology",
+    })
+    ctx = None
+    if hook_url.lower().startswith("https") and not VERIFY_TLS:
+        ctx = ssl._create_unverified_context()  # noqa: SLF001
+    rule = alert.get("rule", {})
+    for attempt in (1, 2):
+        try:
+            with urllib.request.urlopen(req, timeout=TIMEOUT, context=ctx) as r:
+                log("ส่ง alert %s (rule %s, level %s) → HTTP %s" % (alert.get("id"), rule.get("id"), rule.get("level"), r.status))
+                return 0
+        except urllib.error.HTTPError as e:
+            log("ส่งไม่สำเร็จ HTTP %s: %s" % (e.code, e.read()[:300].decode("utf-8", "replace")))
+            if e.code < 500:
+                return 1
+        except Exception as e:  # noqa: BLE001
+            log("ส่งไม่สำเร็จ (ครั้งที่ %d): %s" % (attempt, e))
+        time.sleep(2)
+    return 1
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv))

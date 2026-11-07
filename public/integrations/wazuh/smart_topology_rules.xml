@@ -1,0 +1,59 @@
+<!--
+  Smart Topology NOC → Wazuh rules
+  ติดตั้ง: คัดลอกไฟล์นี้ไปที่ /var/ossec/etc/rules/smart_topology_rules.xml
+           chown wazuh:wazuh /var/ossec/etc/rules/smart_topology_rules.xml
+           systemctl restart wazuh-manager
+  ทดสอบ:  /var/ossec/bin/wazuh-logtest  แล้ววาง event ตัวอย่าง (บรรทัด JSON) ที่ส่งจาก Smart Topology
+
+  ตัวอย่าง event ที่ Smart Topology ส่งผ่าน POST /events:
+  {"integration":"smart-topology","st":{"event":"alert_raised","severity":"critical","kind":"down",
+   "message":"Core Switch (10.0.0.1) ไม่ตอบสนอง ICMP","device":{"id":4,"name":"Core Switch","ip":"10.0.0.1"},
+   "alert_id":120,"site":"โรงพยาบาลกาฬสินธุ์","time":"2026-11-05T09:00:00.000Z"}}
+  ปรับเลข rule id ได้ถ้าชนกับ rule ภายในของโรงพยาบาล (ช่วง 100000–120000 สำหรับ custom rules)
+-->
+<group name="smart_topology,">
+
+  <rule id="100500" level="0">
+    <decoded_as>json</decoded_as>
+    <field name="integration">^smart-topology$</field>
+    <description>Smart Topology NOC: $(st.message)</description>
+  </rule>
+
+  <rule id="100501" level="3">
+    <if_sid>100500</if_sid>
+    <field name="st.event">^alert_resolved$</field>
+    <description>Smart Topology: แก้ไขแล้ว — $(st.message)</description>
+    <group>network_monitoring,</group>
+  </rule>
+
+  <rule id="100502" level="3">
+    <if_sid>100500</if_sid>
+    <field name="st.event">^test$</field>
+    <description>Smart Topology: ทดสอบการเชื่อมต่อ — $(st.message)</description>
+  </rule>
+
+  <rule id="100503" level="5">
+    <if_sid>100500</if_sid>
+    <field name="st.event">^alert_raised$</field>
+    <field name="st.severity">^info$</field>
+    <description>Smart Topology (info): $(st.message)</description>
+    <group>network_monitoring,</group>
+  </rule>
+
+  <rule id="100504" level="8">
+    <if_sid>100500</if_sid>
+    <field name="st.event">^alert_raised$</field>
+    <field name="st.severity">^warning$</field>
+    <description>Smart Topology (warning): $(st.message)</description>
+    <group>network_monitoring,availability,</group>
+  </rule>
+
+  <rule id="100505" level="12">
+    <if_sid>100500</if_sid>
+    <field name="st.event">^alert_raised$</field>
+    <field name="st.severity">^critical$</field>
+    <description>Smart Topology (critical): $(st.message)</description>
+    <group>network_monitoring,availability,</group>
+  </rule>
+
+</group>

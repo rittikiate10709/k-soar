@@ -1,0 +1,17 @@
+{
+  "name": "smart-topology-noc",
+  "version": "1.4.0",
+  "description": "SMART TOPOLOGY — ระบบเฝ้าระวังเครือข่ายและอุปกรณ์ (Network Monitoring / NOC) พร้อมเก็บ log ลง MySQL",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "demo": "SEED_DEMO=1 node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "mysql2": "^3.11.0"
+  }
+}

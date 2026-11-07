@@ -1,0 +1,66 @@
+# ---------------------------------------------------------------
+# วิธีใช้
+#   เฉพาะระบบ NOC (ใช้ MySQL ที่มีอยู่แล้ว / ไม่เก็บ log):
+#       docker compose up -d
+#   ระบบ NOC + MySQL ในเครื่องเดียวกัน:
+#       docker compose --profile mysql up -d
+#       แล้วตั้งค่าในหน้าเว็บ: Host 127.0.0.1 · User nms · Password = NMS_MYSQL_PASSWORD
+#
+# ตั้งรหัสผ่านในไฟล์ .env (อยู่ข้างไฟล์นี้ ห้าม commit ขึ้น Git) เช่น
+#   ADMIN_PASSWORD=...
+#   MYSQL_ROOT_PASSWORD=...
+#   NMS_MYSQL_PASSWORD=...
+# ---------------------------------------------------------------
+services:
+  smart-topology:
+    image: ${NMS_IMAGE:-YOUR_DOCKERHUB_USERNAME/smart-topology:latest}
+    # ถ้าต้องการ build จากซอร์สโค้ดในเครื่องเอง ให้ใช้: docker compose up -d --build
+    build: .
+    container_name: smart-topology-noc
+    restart: unless-stopped
+    # network_mode: host ช่วยให้ ping อุปกรณ์ใน LAN ได้ตรงที่สุด (Linux เท่านั้น)
+    # บน Windows / macOS ให้ลบบรรทัด network_mode แล้วเปิด ports แทน
+    network_mode: host
+    # ports:
+    #   - "3000:3000"
+    cap_add:
+      - NET_RAW
+    environment:
+      - PORT=3000
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD:-ChangeMe@2026}   # รหัส admin ครั้งแรกเท่านั้น
+      # - COOKIE_SECURE=1                                  # เปิดเมื่อใช้งานผ่าน HTTPS
+      # ตั้งค่า MySQL ล่วงหน้า (ใช้เฉพาะการเปิดครั้งแรก ภายหลังแก้ได้ที่หน้าเว็บ)
+      # - NMS_MYSQL_HOST=127.0.0.1
+      # - NMS_MYSQL_USER=nms
+      # - NMS_MYSQL_PASSWORD=${NMS_MYSQL_PASSWORD:-ChangeNms@2026}
+      # - NMS_MYSQL_DATABASE=smart_topology
+    volumes:
+      - nms-data:/data
+
+  # ---------- MySQL (เปิดด้วย --profile mysql)
+  mysql:
+    image: mysql:8.4
+    profiles: ["mysql"]
+    container_name: smart-topology-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-ChangeRoot@2026}
+      MYSQL_DATABASE: smart_topology
+      MYSQL_USER: nms
+      MYSQL_PASSWORD: ${NMS_MYSQL_PASSWORD:-ChangeNms@2026}
+      TZ: Asia/Bangkok
+    command: ["--default-time-zone=+07:00", "--character-set-server=utf8mb4", "--collation-server=utf8mb4_unicode_ci"]
+    ports:
+      - "127.0.0.1:3306:3306"          # เปิดให้เฉพาะเครื่องนี้ (ระบบ NOC ใช้ network host)
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./sql/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro   # สร้างตารางอัตโนมัติครั้งแรก
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-p${MYSQL_ROOT_PASSWORD:-ChangeRoot@2026}"]
+      interval: 15s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  nms-data:
+  mysql-data:

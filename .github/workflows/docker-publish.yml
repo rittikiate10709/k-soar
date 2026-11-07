@@ -1,0 +1,176 @@
+# ===============================================================
+#  Build → ทดสอบ → Push Docker image อัตโนมัติ
+#  - push เข้า branch main      → tag :latest และ :sha-xxxxxxx
+#  - push tag v1.2.3            → tag :1.2.3 และ :1.2
+#  - กด Run workflow เองได้ที่แท็บ Actions
+#  ปลายทาง:
+#   1) GitHub Container Registry (ghcr.io)  — ใช้ได้ทันที ไม่ต้องตั้งค่า
+#   2) Docker Hub                            — เมื่อกำหนด Variable DOCKERHUB_USERNAME
+#                                              และ Secret DOCKERHUB_TOKEN แล้ว
+# ===============================================================
+name: Build & Publish Docker image
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*.*.*']
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+
+env:
+  IMAGE_NAME: smart-topology
+  HAS_DOCKERHUB: ${{ vars.DOCKERHUB_USERNAME != '' && secrets.DOCKERHUB_TOKEN != '' }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    # MySQL สำหรับทดสอบการเก็บ log (ใช้เฉพาะตอน CI)
+    services:
+      mysql:
+        image: mysql:8.4
+        env:
+          MYSQL_ROOT_PASSWORD: ci-root
+          MYSQL_DATABASE: smart_topology
+          MYSQL_USER: nms
+          MYSQL_PASSWORD: ci-nms-pass
+        ports: ['3306:3306']
+        options: >-
+          --health-cmd="mysqladmin ping -h 127.0.0.1 -uroot -pci-root"
+          --health-interval=5s --health-timeout=5s --health-retries=30
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js (syntax check)
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Syntax check
+        run: |
+          node --check server.js
+          for f in lib/*.js public/js/*.js; do node --check "$f"; done
+
+      - name: Lowercase owner name (ghcr ต้องเป็นตัวพิมพ์เล็ก)
+        run: echo "OWNER_LC=${GITHUB_REPOSITORY_OWNER,,}" >> "$GITHUB_ENV"
+
+      - name: Set up QEMU (multi-arch)
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      # ---------- 1) build เฉพาะ amd64 แล้วทดสอบรันจริงก่อน push
+      - name: Build test image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          load: true
+          tags: ${{ env.IMAGE_NAME }}:ci
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Smoke test container
+        run: |
+          set -e
+          docker run -d --name st --network host --cap-add NET_RAW -e ADMIN_PASSWORD='CiTest@12345' ${{ env.IMAGE_NAME }}:ci
+          for i in $(seq 1 30); do curl -fs http://localhost:3000/login >/dev/null && break; sleep 1; done
+          J='Content-Type: application/json'; CJ=/tmp/cj
+          echo "--- หน้า Login"; curl -fsS -o /dev/null -w '%{http_code}\n' http://localhost:3000/login
+          echo "--- API Login";  curl -fsS -c $CJ -X POST -H "$J" \
+               -d '{"username":"admin","password":"CiTest@12345"}' http://localhost:3000/api/login
+          echo; echo "--- ผู้ใช้ใน container (ต้องไม่ใช่ root)"; docker exec st id
+          echo "--- ทดสอบ ping แบบ non-root"; docker exec st ping -c 1 -W 2 127.0.0.1
+
+          echo "--- MySQL: สร้างตาราง + เปิดการเก็บ log"
+          CFG='{"enabled":true,"host":"127.0.0.1","port":3306,"user":"nms","password":"ci-nms-pass","database":"smart_topology","rawLog":true,"rawDays":30,"statDays":90,"hourDays":0}'
+          curl -fsS -b $CJ -X POST -H "$J" -d "$CFG" http://localhost:3000/api/mysql/init | tee /tmp/init.json; echo
+          jq -e '.ok == true' /tmp/init.json
+          curl -fsS -b $CJ -X PUT -H "$J" -d "$CFG" http://localhost:3000/api/mysql >/dev/null
+          curl -fsS -b $CJ -X PUT -H "$J" -d '{"intervalSec":3}' http://localhost:3000/api/settings >/dev/null
+          curl -fsS -b $CJ -X POST -H "$J" -d '{"name":"CI loopback","ip":"127.0.0.1","type":"server"}' http://localhost:3000/api/devices >/dev/null
+          sleep 25
+          echo "--- MySQL: รายงานรายวันต้องมีข้อมูล"
+          curl -fsS -b $CJ "http://localhost:3000/api/reports?mode=day" | tee /tmp/rep.json | head -c 400; echo
+          jq -e '.connected == true and .kpi.current.checks > 0' /tmp/rep.json
+          echo "--- API: health / OpenAPI / API Key"
+          curl -fsS http://localhost:3000/api/v1/health | jq -e '.status == "ok"'
+          curl -fsS http://localhost:3000/api/v1/openapi.json | jq -e '.openapi == "3.0.3"' >/dev/null
+          TOKEN=$(curl -fsS -b $CJ -X POST -H "$J" -d '{"name":"CI","role":"viewer","expiresDays":1}' http://localhost:3000/api/apikeys | jq -r .token)
+          curl -fsS -H "Authorization: Bearer $TOKEN" http://localhost:3000/api/v1/devices | jq -e '.total >= 1'
+          test "$(curl -s -o /dev/null -w '%{http_code}' -H 'Authorization: Bearer stk_invalid' http://localhost:3000/api/v1/devices)" = 401
+          echo "--- Backup: ส่งออกแบบเข้ารหัส + ตรวจไฟล์"
+          curl -fsS -b $CJ -X POST -H "$J" -d '{"passphrase":"CiBackup@123"}' http://localhost:3000/api/backup/export | jq '{backup:.backup, passphrase:"CiBackup@123"}' > /tmp/bk.json
+          curl -fsS -b $CJ -X POST -H "$J" -d @/tmp/bk.json http://localhost:3000/api/backup/inspect | jq -e '.summary.devices >= 1'
+          echo "--- Inventory: Agent key + รายงานสเปค + Linux agent ใน container"
+          AGENT=$(curl -fsS -b $CJ -X POST -H "$J" -d '{"name":"CI agent","role":"agent","expiresDays":1}' http://localhost:3000/api/apikeys | jq -r .token)
+          curl -fsS -H "Authorization: Bearer $AGENT" -H "$J" -d '{"agentId":"00000000-0000-4000-8000-000000000001","hostname":"CI-PC-01","os":{"name":"Windows 11 Pro"},"cpu":{"model":"Intel i5"},"ramMB":8192}' \
+            http://localhost:3000/api/v1/inventory/report | jq -e '.ok == true and .isNew == true'
+          test "$(curl -s -o /dev/null -w '%{http_code}' -H "Authorization: Bearer $AGENT" http://localhost:3000/api/v1/devices)" = 403
+          curl -fsS -b $CJ "http://localhost:3000/api/inventory/changes?mode=day" | jq -e '.total >= 1'
+          echo "--- IP scan: เพิ่มช่วง + สแกน"
+          curl -fsS -b $CJ -X POST -H "$J" -d '{"name":"loopback","spec":"127.0.0.1-4"}' http://localhost:3000/api/ipscan/ranges >/dev/null
+          curl -fsS -b $CJ -X POST -H "$J" -d '{}' http://localhost:3000/api/ipscan/run >/dev/null; sleep 8
+          curl -fsS -b $CJ http://localhost:3000/api/ipscan | jq -e '.totals.alive >= 1'
+          echo "--- Logs"; docker logs st
+          docker rm -f st
+
+      # ---------- 2) login registry
+      - name: Log in to GitHub Container Registry
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Log in to Docker Hub
+        if: github.event_name != 'pull_request' && env.HAS_DOCKERHUB == 'true'
+        uses: docker/login-action@v3
+        with:
+          username: ${{ vars.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      # ---------- 3) กำหนดชื่อ/แท็ก image
+      - name: Docker metadata (tags & labels)
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: |
+            ghcr.io/${{ env.OWNER_LC }}/${{ env.IMAGE_NAME }}
+            ${{ env.HAS_DOCKERHUB == 'true' && format('docker.io/{0}/{1}', vars.DOCKERHUB_USERNAME, env.IMAGE_NAME) || '' }}
+          tags: |
+            type=raw,value=latest,enable={{is_default_branch}}
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=sha,prefix=sha-,format=short
+
+      # ---------- 4) build หลายสถาปัตยกรรม แล้ว push
+      - name: Build & push (linux/amd64, linux/arm64)
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          platforms: linux/amd64,linux/arm64
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Summary
+        if: github.event_name != 'pull_request'
+        run: |
+          {
+            echo "## ✅ Docker image พร้อมใช้งาน"
+            echo '```'
+            echo "${{ steps.meta.outputs.tags }}"
+            echo '```'
+            if [ "${{ env.HAS_DOCKERHUB }}" != "true" ]; then
+              echo "> ℹ️ ยังไม่ได้ push ไป Docker Hub — ตั้ง Variable DOCKERHUB_USERNAME และ Secret DOCKERHUB_TOKEN"
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"

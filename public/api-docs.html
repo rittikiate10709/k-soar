@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Smart Topology — เอกสาร API</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/css/app.css">
+<link rel="stylesheet" href="/css/api-docs.css">
+</head>
+<body>
+<header class="topbar"><div class="topbar-in"><div class="brand"><div><h1 style="margin:0;font-size:18px">SMART TOPOLOGY · REST API</h1><p id="ver" class="faint" style="margin:0"></p></div></div>
+  <div class="tools"><a class="btn sm" href="/">กลับหน้าหลัก</a><a class="btn sm" href="/api/v1/openapi.json" target="_blank">openapi.json</a></div></div></header>
+<main class="wrap ad">
+  <section class="card panel">
+    <h2 style="margin-top:0">การยืนยันตัวตน</h2>
+    <p class="muted">ส่ง Header <span class="mono">Authorization: Bearer stk_…</span> (สร้าง Key ที่ ตั้งค่า → การเชื่อมต่อแบบ API) · ถ้าเปิดหน้านี้ขณะเข้าสู่ระบบอยู่ ปุ่ม “ทดลองเรียก” ใช้ session ของคุณได้โดยไม่ต้องใส่ Key</p>
+    <div class="adauth"><input class="inp mono" id="tok" placeholder="stk_xxxxxxxx (เว้นว่าง = ใช้ session ที่เข้าสู่ระบบ)" autocomplete="off"><span class="hint">Key เก็บในหน้านี้เท่านั้น ไม่บันทึกลงเบราว์เซอร์</span></div>
+    <div class="code-block" id="base"></div>
+  </section>
+  <div id="ops"><div class="empty">กำลังโหลด…</div></div>
+</main>
+<script src="/js/api-docs.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>เข้าสู่ระบบ — Smart Topology NOC</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+<div class="login">
+  <section class="login-art">
+    <div class="brand" id="brandArt"></div>
+    <h2>ระบบเฝ้าระวังเครือข่าย<br>และอุปกรณ์ศูนย์ข้อมูลแบบเรียลไทม์</h2>
+    <p class="lead">ตรวจสอบสถานะ Switch, Router, Server และอุปกรณ์ปลายทางด้วย ICMP / TCP แจ้งเตือนทันทีเมื่อเกิดปัญหา พร้อมแผนผัง Topology ที่ลากจัดวางได้</p>
+    <div class="login-feats">
+      <div class="lf"><b>ICMP</b><span>Ping ตรวจสอบทุกรอบอัตโนมัติ</span></div>
+      <div class="lf"><b>TCP</b><span>ตรวจพอร์ตบริการ เช่น HIS / DB</span></div>
+      <div class="lf"><b>LIVE</b><span>อัปเดตสถานะแบบเรียลไทม์</span></div>
+    </div>
+    <svg class="net" viewBox="0 0 620 150" fill="none">
+      <g stroke="#2dd4bf" stroke-width="1.4" stroke-dasharray="5 4" opacity=".7">
+        <path d="M310 30 V70"/><path d="M310 70 L120 110"/><path d="M310 70 L250 110"/><path d="M310 70 L370 110"/><path d="M310 70 L500 110"/>
+      </g>
+      <g fill="#14262f" stroke="#2d5a5a">
+        <rect x="255" y="10" width="110" height="30" rx="4"/><rect x="255" y="60" width="110" height="24" rx="4"/>
+        <rect x="70" y="106" width="100" height="26" rx="4"/><rect x="200" y="106" width="100" height="26" rx="4"/>
+        <rect x="320" y="106" width="100" height="26" rx="4"/><rect x="450" y="106" width="100" height="26" rx="4"/>
+      </g>
+      <g fill="#5eead4" font-family="monospace" font-size="10">
+        <text x="270" y="29">FIREWALL</text><text x="270" y="76">CORE SWITCH</text>
+        <text x="84" y="123">ACCESS SW</text><text x="218" y="123">SERVER</text><text x="338" y="123">HIS DB</text><text x="474" y="123">WI-FI AP</text>
+      </g>
+      <g fill="#12b07a"><circle cx="356" cy="18" r="3"/><circle cx="356" cy="67" r="3"/><circle cx="162" cy="113" r="3"/><circle cx="292" cy="113" r="3"/><circle cx="412" cy="113" r="3"/></g>
+      <circle cx="542" cy="113" r="3" fill="#f0425f"/>
+    </svg>
+  </section>
+  <section class="login-form">
+    <form class="lbox" id="loginForm" autocomplete="on">
+      <div class="brand" id="brandForm" style="margin-bottom:28px"></div>
+      <h3>เข้าสู่ระบบ</h3>
+      <p class="sub">กรุณาเข้าสู่ระบบเพื่อใช้งานศูนย์ควบคุมเครือข่าย (NOC)</p>
+      <div id="loginErr" class="err hidden"></div>
+      <div class="fg">
+        <label for="username">ชื่อผู้ใช้</label>
+        <div class="field"><span id="uIcon"></span><input class="inp" id="username" name="username" autocomplete="username" required autofocus placeholder="username"></div>
+      </div>
+      <div class="fg">
+        <label for="password">รหัสผ่าน</label>
+        <div class="field pwwrap"><span id="pIcon"></span><input class="inp" id="password" name="password" type="password" autocomplete="current-password" required placeholder="••••••••"><button type="button" class="eye" id="eyeBtn" aria-label="แสดงรหัสผ่าน"></button></div>
+      </div>
+      <div class="lrow">
+        <label class="check"><input type="checkbox" id="remember"> จดจำการเข้าสู่ระบบ 7 วัน</label>
+        <button type="button" class="btn ghost sm" id="themeBtn" aria-label="สลับธีม"></button>
+      </div>
+      <button class="btn primary" type="submit" id="loginBtn"></button>
+      <p class="lnote">ติดต่อผู้ดูแลระบบหากลืมรหัสผ่าน · Smart Topology NOC</p>
+    </form>
+  </section>
+</div>
+<script src="/js/common.js"></script>
+<script src="/js/login.js"></script>
+</body>
+</html>

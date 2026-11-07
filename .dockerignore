@@ -1,0 +1,8 @@
+data
+node_modules
+.git
+.github
+*.md
+*.zip
+docker-compose*.yml
+.env
