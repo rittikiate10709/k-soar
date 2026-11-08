@@ -23,7 +23,7 @@ permissions:
   packages: write
 
 env:
-  IMAGE_NAME: smart-topology
+  IMAGE_NAME: k-soar
   HAS_DOCKERHUB: ${{ vars.DOCKERHUB_USERNAME != '' && secrets.DOCKERHUB_TOKEN != '' }}
 
 jobs:
