@@ -1,0 +1,4950 @@
+{
+ "format": "smart-topology-backup",
+ "version": 1,
+ "app": "1.4.0",
+ "createdAt": "2026-11-07T19:30:04.287Z",
+ "createdBy": "system",
+ "encrypted": false,
+ "data": {
+  "settings": {
+   "intervalSec": 10,
+   "timeoutMs": 1000,
+   "warnMs": 100,
+   "slaTarget": 99.8,
+   "siteName": "โรงพยาบาลกาฬสินธุ์"
+  },
+  "users": [
+   {
+    "id": 1,
+    "username": "admin",
+    "name": "ผู้ดูแลระบบ",
+    "role": "admin",
+    "pass": "9588d82a972f81ac360a3dfa7f8415f3:127c64f08eea42038f31b8b66bbd0d7dc830f10365fcf8bb9e35d9345338bb757063b70b19bef7dd21e0071a0ccff8ac06e1df7248d5c2a114ab8ecc38a457f0",
+    "mustChange": false,
+    "created": 1793870353012,
+    "lastLogin": 1794054787629
+   },
+   {
+    "id": 2,
+    "username": "kwin",
+    "name": "ฤทธิเกียรติ พัฒนโชติ",
+    "role": "admin",
+    "pass": "fc242cf8d2ffccd057ff42172bbd2478:11ca226abd559e0e2999a6c1d16250a1319fc9f73685d924b0b33bb5b7143cc0aaf6f873cbd891675f428ce0f72fe19697106d4563f263370e7e66e44f892f70",
+    "mustChange": true,
+    "created": 1793870654036
+   },
+   {
+    "id": 3,
+    "username": "khai",
+    "name": "เลิศชัย อุดมพันธ์",
+    "role": "operator",
+    "pass": "7b53ff6b858a162ce748a939a8e59d0f:758d7b954a4840684ddaa1882ef310d27f917af42140b02f3288fed28e050fa8ed4da94bb27657f427165cb2f39faea0b5b35e76e0c8f6a3327c7de5d48a785c",
+    "mustChange": true,
+    "created": 1793870685644
+   },
+   {
+    "id": 4,
+    "username": "klsh",
+    "name": "kalasin hospital",
+    "role": "viewer",
+    "pass": "97a6b247dd0972ab5c43e26e161337fa:9e90bfca4faaca415bfd00fcf83c6fd3a8a05ae63c560959aa2b253ab55fd12adb0bd6516fb1a73a70d132f833c0aaf4a1e38ed9409d78aa3436e6a20ec1fe3e",
+    "mustChange": true,
+    "created": 1793870703118
+   }
+  ],
+  "devices": [
+   {
+    "name": "core switch DC",
+    "ip": "172.16.3.254",
+    "type": "core",
+    "method": "icmp",
+    "port": null,
+    "vendor": "Cisco",
+    "model": "Cisco C9404R",
+    "code": "DEV-001",
+    "location": "ห้องแม่ข่าย1",
+    "vlan": "16",
+    "mac": "",
+    "linkLabel": "",
+    "description": "",
+    "critical": false,
+    "maintenance": false,
+    "enabled": true,
+    "notify": true,
+    "parentId": null,
+    "id": 1,
+    "created": 1793870567572,
+    "x": 449,
+    "y": -342
+   },
+   {
+    "name": "Firewall",
+    "ip": "192.168.25.254",
+    "type": "firewall",
+    "method": "icmp",
+    "port": null,
+    "vendor": "Fortinet",
+    "model": "Fortigate500E",
+    "code": "DEV-002",
+    "location": "ห้องแม่ข่าย1",
+    "vlan": "25",
+    "mac": "",
+    "linkLabel": "",
+    "description": "",
+    "critical": false,
+    "maintenance": false,
+    "enabled": true,
+    "notify": true,
+    "parentId": 1,
+    "id": 2,
+    "created": 1793870567572,
+    "x": -234,
+    "y": -360
+   },
+   {
+    "name": "OPD_NEW_FL1",
+    "ip": "172.16.3.245",
+    "type": "switch",
+    "method": "icmp",
+    "port": null,
+    "vendor": "Cisco",
+    "model": "WS-C2960-24TT-L",
+    "code": "DEV-003",
+    "location": "ห้องบัตร",
+    "vlan": "16",
+    "mac": "",
+    "linkLabel": "",
+    "description": "",
+    "critical": false,
+    "maintenance": false,
+    "enabled": true,
+    "notify": true,
+    "parentId": 1,
+    "id": 3,
+    "created": 1793870567572,
+    "x": -66,
+    "y": -159
+   },
+   {
+    "name": "Core switch Doctor DR",
+    "ip": "172.16.3.232",
+    "type": "core",
+    "method": "icmp",
+    "port": null,
+    "vendor": "Cisco",
+    "model": "CBS350-24XS",
+    "code": "DEV-004",
+    "location": "ห้องแม่ข่าย2",
+    "vlan": "16",
+    "mac": "",
+    "linkLabel": "",
+    "description": "",
+    "critical": false,
+    "maintenance": false,
+    "enabled": true,
+    "notify": true,
+    "parentId": 2,
+    "id": 4,
+    "created": 1793870567572,
+    "x": -470,
+    "y": -237
+   },
+   {
+    "name": "SW-L2-Medical_Center",
+    "ip": "172.16.3.239",
+    "type": "switch",
+    "method": "icmp",
+    "port": null,
+    "vendor": "Cisco",
+    "model": "Cisco Catalyst 1000 Series Switches",
+    "code": "DEV-005",
+    "location": "ห้องแม่ข่าย 2",
+    "vlan": "16",
+    "mac": "",
+    "linkLabel": "",
+    "description": "",
+    "critical": false,
+    "maintenance": false,
+    "enabled": true,
+    "notify": true,
+    "parentId": 4,
+    "id": 5,
+    "created": 1793870567572,
+    "x": -409,
+    "y": -106
+   },
+   {
+    "name": "SVR-bk-DR",
+    "ip": "172.20.0.181",
+    "type": "server",
+    "method": "icmp",
+    "port": null,
+    "vendor": "Ienovo",
+    "model": "ThinkSystem SR650 V2",
+    "code": "DEV-006",
+    "location": "",
+    "vlan": "20",
+    "mac": "",
+    "linkLabel": "",
+    "description": "",
+    "critical": false,
+    "maintenance": false,
+    "enabled": true,
+    "notify": true,
+    "parentId": 5,
+    "id": 6,
+    "created": 1793870567572,
+    "x": -519,
+    "y": 0
+   },
+   {
+    "name": "SVR-20310",
+    "ip": "172.20.3.10",
+    "type": "database",
+    "method": "icmp",
+    "port": null,
+    "vendor": "",
+    "model": "VM",
+    "code": "DEV-007",
+    "location": "ห้องแม่ข่าย 2",
+    "vlan": "20",
+    "mac": "",
+    "linkLabel": "",
+    "description": "",
+    "critical": false,
+    "maintenance": false,
+    "enabled": true,
+    "notify": true,
+    "parentId": 6,
+    "id": 7,
+    "created": 1793870567572,
+    "x": -711,
+    "y": 120
+   },
+   {
+    "name": "SW-L2-Food2567",
+    "ip": "172.16.3.229",
+    "type": "switch",
+    "method": "icmp",
+    "port": null,
+    "vendor": "Cisco",
+    "model": "CBS350-24T-4G",
+    "code": "DEV-008",
+    "location": "อาคารจอดรถ",
+    "vlan": "16",
+    "mac": "",
+    "linkLabel": "",
+    "description": "",
+    "critical": false,
+    "maintenance": false,
+    "enabled": true,
+    "notify": true,
+    "parentId": 1,
+    "id": 8,
+    "created": 1793870567572,
+    "x": -12,
+    "y": -1
+   },
+   {
+    "name": "ER100-2th",
+    "ip": "172.16.3.238",
+    "type": "switch",
+    "method": "icmp",
+    "port": null,
+    "vendor": "",
+    "model": "Cisco Catalyst 1000 Series Switches",
+    "code": "DEV-009",
+    "location": "ER100-2th",
+    "vlan": "17",
+    "mac": "",
+    "linkLabel": "",
+    "description": "",
+    "critical": false,
+    "maintenance": false,
+    "enabled": true,
+    "notify": true,
+    "parentId": 1,
+    "id": 9,
+    "created": 1793870567572,
+    "x": 327,
+    "y": -25
+   },
+   {
+    "name": "ER100_1th",
+    "ip": "172.16.3.242",
+    "type": "switch",
+    "method": "icmp",
+    "port": null,
+    "vendor": "Cisco",
+    "model": "Cisco WS-C2960-24TC-L",
+    "code": "DEV-010",
+    "location": "ER100-th1",
+    "vlan": "17",
+    "mac": "",
+    "linkLabel": "",
+    "description": "",
+    "critical": false,
+    "maintenance": false,
+    "enabled": true,
+    "notify": true,
+    "parentId": 9,
+    "id": 10,
+    "created": 1793870567572,
+    "x": -83,
+    "y": 199
+   },
+   {
+    "name": "AE",
+    "ip": "172.16.3.250",
+    "type": "switch",
+    "method": "icmp",
+    "port": null,
+    "vendor": "",
+    "model": "WS-C2960-24TC-S",
+    "code": "DEV-011",
+    "location": "AE",
+    "vlan": "16",
+    "mac": "",
+    "linkLabel": "",
+    "description": "",
+    "critical": false,
+    "maintenance": false,
+    "enabled": true,
+    "notify": true,
+    "parentId": 1,
+    "id": 11,
+    "created": 1793870567572,
+    "x": 492,
+    "y": 92
+   },
+   {
+    "name": "Chart-MA",
+    "ip": "172.16.3.249",
+    "type": "switch",
+    "method": "icmp",
+    "port": null,
+    "vendor": "Cisco",
+    "model": "WS-C2960-24TC-S",
+    "code": "DEV-012",
+    "location": "Maintenance",
+    "vlan": "16",
+    "mac": "",
+    "linkLabel": "",
+    "description": "",
+    "critical": false,
+    "maintenance": false,
+    "enabled": true,
+    "notify": true,
+    "parentId": 1,
+    "id": 12,
+    "created": 1793870567572,
+    "x": 801,
+    "y": 172
+   },
+   {
+    "name": "PP",
+    "ip": "172.16.3.247",
+    "type": "switch",
+    "method": "icmp",
+    "port": null,
+    "vendor": "Cisco",
+    "model": "WS-C2960-24TC-S",
+    "code": "DEV-013",
+    "location": "PP",
+    "vlan": "16",
+    "mac": "",
+    "linkLabel": "",
+    "description": "",
+    "critical": false,
+    "maintenance": false,
+    "enabled": true,
+    "notify": true,
+    "parentId": 1,
+    "id": 13,
+    "created": 1793870567572,
+    "x": 658,
+    "y": 261
+   },
+   {
+    "name": "OPD-spt-one stop service",
+    "ip": "172.16.3.244",
+    "type": "switch",
+    "method": "icmp",
+    "port": null,
+    "vendor": "Cisco",
+    "model": "WS-C2960-24TC-S",
+    "code": "DEV-014",
+    "location": "One stop service",
+    "vlan": "16",
+    "mac": "",
+    "linkLabel": "",
+    "description": "",
+    "critical": false,
+    "maintenance": false,
+    "enabled": true,
+    "notify": true,
+    "parentId": 1,
+    "id": 14,
+    "created": 1793870567572,
+    "x": 936,
+    "y": 75
+   },
+   {
+    "name": "opd-spt-OSS-stack2",
+    "ip": "172.16.3.235",
+    "type": "switch",
+    "method": "icmp",
+    "port": null,
+    "vendor": "Cisco",
+    "model": "WS-C2960-24TT-L",
+    "code": "DEV-015",
+    "location": "One stop service",
+    "vlan": "16",
+    "mac": "",
+    "linkLabel": "",
+    "description": "",
+    "critical": false,
+    "maintenance": false,
+    "enabled": true,
+    "notify": true,
+    "parentId": 14,
+    "id": 15,
+    "created": 1793870567572,
+    "x": 1069,
+    "y": 233
+   },
+   {
+    "name": "PCC",
+    "ip": "172.16.3.241",
+    "type": "switch",
+    "method": "icmp",
+    "port": null,
+    "vendor": "Cisco",
+    "model": "WS-C2960X-24TS-LL",
+    "code": "DEV-016",
+    "location": "PCC",
+    "vlan": "16",
+    "mac": "",
+    "linkLabel": "",
+    "description": "",
+    "critical": false,
+    "maintenance": false,
+    "enabled": true,
+    "notify": true,
+    "parentId": 1,
+    "id": 16,
+    "created": 1793870567572,
+    "x": 1410,
+    "y": 168
+   },
+   {
+    "name": "ER-Old",
+    "ip": "172.16.3.240",
+    "type": "switch",
+    "method": "icmp",
+    "port": null,
+    "vendor": "Cisco",
+    "model": "WS-C2960X-24TS-LL",
+    "code": "DEV-017",
+    "location": "ไตเทียม 2th",
+    "vlan": "16",
+    "mac": "",
+    "linkLabel": "",
+    "description": "",
+    "critical": false,
+    "maintenance": false,
+    "enabled": true,
+    "notify": true,
+    "parentId": 1,
+    "id": 17,
+    "created": 1793870567572,
+    "x": 1186,
+    "y": 112
+   },
+   {
+    "name": "OPD-new-2th",
+    "ip": "172.16.3.252",
+    "type": "switch",
+    "method": "icmp",
+    "port": null,
+    "vendor": "Cisco",
+    "model": "WS-C2960X-24TS-LL",
+    "code": "DEV-018",
+    "location": "OPD-new-2th",
+    "vlan": "16",
+    "mac": "",
+    "linkLabel": "",
+    "description": "",
+    "critical": false,
+    "maintenance": false,
+    "enabled": true,
+    "notify": true,
+    "parentId": 1,
+    "id": 18,
+    "created": 1793870567572,
+    "x": 1029,
+    "y": -215
+   },
+   {
+    "name": "OPD-new-3th",
+    "ip": "172.16.3.243",
+    "type": "switch",
+    "method": "icmp",
+    "port": null,
+    "vendor": "Cisco",
+    "model": "WS-C2960-24TT-L",
+    "code": "DEV-019",
+    "location": "OPD-new-3th",
+    "vlan": "16",
+    "mac": "",
+    "linkLabel": "",
+    "description": "",
+    "critical": false,
+    "maintenance": false,
+    "enabled": true,
+    "notify": true,
+    "parentId": 18,
+    "id": 19,
+    "created": 1793870567572,
+    "x": 1378,
+    "y": -97
+   },
+   {
+    "name": "OPD-new-3th",
+    "ip": "172.16.3.237",
+    "type": "switch",
+    "method": "icmp",
+    "port": null,
+    "vendor": "Cisco",
+    "model": "WS-C2960X-24TS-LL",
+    "code": "DEV-020",
+    "location": "OPD-new-3th",
+    "vlan": "16",
+    "mac": "",
+    "linkLabel": "",
+    "description": "",
+    "critical": false,
+    "maintenance": false,
+    "enabled": true,
+    "notify": true,
+    "parentId": 19,
+    "id": 20,
+    "created": 1793870567572,
+    "x": 1672,
+    "y": 89
+   }
+  ],
+  "notify": {
+   "enabled": true,
+   "onDown": true,
+   "onRecover": true,
+   "onWarning": true,
+   "criticalOnly": false,
+   "suppressChildren": false,
+   "repeatMin": 5,
+   "publicUrl": "https://klshcheck2.klsh.go.th/",
+   "channels": [
+    {
+     "id": "b2b4dbd8016b",
+     "type": "moph",
+     "enabled": true,
+     "name": "MOPH Notify (หมอพร้อม)",
+     "url": "https://morpromt2f.moph.go.th/api/notify/send",
+     "clientKey": "93e02377ac7099a8f1be75d0eadfdf3bafeada83",
+     "secretKey": "A32BC2AD4DEBBARYWMMCQQYLQCLY",
+     "format": "flex"
+    }
+   ],
+   "log": [
+    {
+     "t": 1793871080949,
+     "channel": "MOPH Notify (หมอพร้อม)",
+     "type": "moph",
+     "kind": "test",
+     "ok": true,
+     "status": 200,
+     "info": "{\"status\":200,\"message\":\"Succesfully\"}"
+    },
+    {
+     "t": 1793871559227,
+     "channel": "MOPH Notify (หมอพร้อม)",
+     "type": "moph",
+     "kind": "report",
+     "ok": true,
+     "status": 200,
+     "info": "{\"status\":200,\"message\":\"Succesfully\"}"
+    },
+    {
+     "t": 1793955562090,
+     "channel": "MOPH Notify (หมอพร้อม)",
+     "type": "moph",
+     "kind": "test",
+     "ok": true,
+     "status": 200,
+     "info": "{\"status\":200,\"message\":\"Succesfully\"}"
+    },
+    {
+     "t": 1794051846165,
+     "channel": "MOPH Notify (หมอพร้อม)",
+     "type": "moph",
+     "kind": "warning",
+     "ok": true,
+     "status": 200,
+     "info": "{\"status\":200,\"message\":\"Succesfully\"}"
+    },
+    {
+     "t": 1794053047248,
+     "channel": "MOPH Notify (หมอพร้อม)",
+     "type": "moph",
+     "kind": "warning",
+     "ok": true,
+     "status": 200,
+     "info": "{\"status\":200,\"message\":\"Succesfully\"}"
+    },
+    {
+     "t": 1794055136328,
+     "channel": "MOPH Notify (หมอพร้อม)",
+     "type": "moph",
+     "kind": "down",
+     "ok": true,
+     "status": 200,
+     "info": "{\"status\":200,\"message\":\"Succesfully\"}"
+    },
+    {
+     "t": 1794055455931,
+     "channel": "MOPH Notify (หมอพร้อม)",
+     "type": "moph",
+     "kind": "warning",
+     "ok": true,
+     "status": 200,
+     "info": "{\"status\":200,\"message\":\"Succesfully\"}"
+    },
+    {
+     "t": 1794056056857,
+     "channel": "MOPH Notify (หมอพร้อม)",
+     "type": "moph",
+     "kind": "warning",
+     "ok": true,
+     "status": 200,
+     "info": "{\"status\":200,\"message\":\"Succesfully\"}"
+    },
+    {
+     "t": 1794057295551,
+     "channel": "MOPH Notify (หมอพร้อม)",
+     "type": "moph",
+     "kind": "down",
+     "ok": true,
+     "status": 200,
+     "info": "{\"status\":200,\"message\":\"Succesfully\"}"
+    },
+    {
+     "t": 1794057757804,
+     "channel": "MOPH Notify (หมอพร้อม)",
+     "type": "moph",
+     "kind": "warning",
+     "ok": true,
+     "status": 200,
+     "info": "{\"status\":200,\"message\":\"Succesfully\"}"
+    },
+    {
+     "t": 1794058458294,
+     "channel": "MOPH Notify (หมอพร้อม)",
+     "type": "moph",
+     "kind": "warning",
+     "ok": true,
+     "status": 200,
+     "info": "{\"status\":200,\"message\":\"Succesfully\"}"
+    },
+    {
+     "t": 1794059058809,
+     "channel": "MOPH Notify (หมอพร้อม)",
+     "type": "moph",
+     "kind": "warning",
+     "ok": true,
+     "status": 200,
+     "info": "{\"status\":200,\"message\":\"Succesfully\"}"
+    },
+    {
+     "t": 1794061472215,
+     "channel": "MOPH Notify (หมอพร้อม)",
+     "type": "moph",
+     "kind": "warning",
+     "ok": true,
+     "status": 200,
+     "info": "{\"status\":200,\"message\":\"Succesfully\"}"
+    },
+    {
+     "t": 1794062671471,
+     "channel": "MOPH Notify (หมอพร้อม)",
+     "type": "moph",
+     "kind": "warning",
+     "ok": true,
+     "status": 200,
+     "info": "{\"status\":200,\"message\":\"Succesfully\"}"
+    },
+    {
+     "t": 1794063122354,
+     "channel": "MOPH Notify (หมอพร้อม)",
+     "type": "moph",
+     "kind": "down",
+     "ok": true,
+     "status": 200,
+     "info": "{\"status\":200,\"message\":\"Succesfully\"}"
+    },
+    {
+     "t": 1794063131708,
+     "channel": "MOPH Notify (หมอพร้อม)",
+     "type": "moph",
+     "kind": "recover",
+     "ok": true,
+     "status": 200,
+     "info": "{\"status\":200,\"message\":\"Succesfully\"}"
+    },
+    {
+     "t": 1794063872383,
+     "channel": "MOPH Notify (หมอพร้อม)",
+     "type": "moph",
+     "kind": "warning",
+     "ok": true,
+     "status": 200,
+     "info": "{\"status\":200,\"message\":\"Succesfully\"}"
+    },
+    {
+     "t": 1794065683749,
+     "channel": "MOPH Notify (หมอพร้อม)",
+     "type": "moph",
+     "kind": "warning",
+     "ok": true,
+     "status": 200,
+     "info": "{\"status\":200,\"message\":\"Succesfully\"}"
+    },
+    {
+     "t": 1794066284180,
+     "channel": "MOPH Notify (หมอพร้อม)",
+     "type": "moph",
+     "kind": "warning",
+     "ok": true,
+     "status": 200,
+     "info": "{\"status\":200,\"message\":\"Succesfully\"}"
+    },
+    {
+     "t": 1794066884714,
+     "channel": "MOPH Notify (หมอพร้อม)",
+     "type": "moph",
+     "kind": "warning",
+     "ok": true,
+     "status": 200,
+     "info": "{\"status\":200,\"message\":\"Succesfully\"}"
+    },
+    {
+     "t": 1794067485045,
+     "channel": "MOPH Notify (หมอพร้อม)",
+     "type": "moph",
+     "kind": "warning",
+     "ok": true,
+     "status": 200,
+     "info": "{\"status\":200,\"message\":\"Succesfully\"}"
+    },
+    {
+     "t": 1794068085587,
+     "channel": "MOPH Notify (หมอพร้อม)",
+     "type": "moph",
+     "kind": "warning",
+     "ok": true,
+     "status": 200,
+     "info": "{\"status\":200,\"message\":\"Succesfully\"}"
+    },
+    {
+     "t": 1794068686047,
+     "channel": "MOPH Notify (หมอพร้อม)",
+     "type": "moph",
+     "kind": "warning",
+     "ok": true,
+     "status": 200,
+     "info": "{\"status\":200,\"message\":\"Succesfully\"}"
+    },
+    {
+     "t": 1794071698266,
+     "channel": "MOPH Notify (หมอพร้อม)",
+     "type": "moph",
+     "kind": "warning",
+     "ok": true,
+     "status": 200,
+     "info": "{\"status\":200,\"message\":\"Succesfully\"}"
+    },
+    {
+     "t": 1794075911500,
+     "channel": "MOPH Notify (หมอพร้อม)",
+     "type": "moph",
+     "kind": "warning",
+     "ok": true,
+     "status": 200,
+     "info": "{\"status\":200,\"message\":\"Succesfully\"}"
+    },
+    {
+     "t": 1794076511893,
+     "channel": "MOPH Notify (หมอพร้อม)",
+     "type": "moph",
+     "kind": "warning",
+     "ok": true,
+     "status": 200,
+     "info": "{\"status\":200,\"message\":\"Succesfully\"}"
+    },
+    {
+     "t": 1794077712736,
+     "channel": "MOPH Notify (หมอพร้อม)",
+     "type": "moph",
+     "kind": "warning",
+     "ok": true,
+     "status": 200,
+     "info": "{\"status\":200,\"message\":\"Succesfully\"}"
+    },
+    {
+     "t": 1794078913715,
+     "channel": "MOPH Notify (หมอพร้อม)",
+     "type": "moph",
+     "kind": "warning",
+     "ok": true,
+     "status": 200,
+     "info": "{\"status\":200,\"message\":\"Succesfully\"}"
+    }
+   ]
+  },
+  "mysql": {
+   "enabled": true,
+   "host": "172.21.3.12",
+   "port": 3306,
+   "user": "nklsh",
+   "password": "nklsh10709",
+   "database": "smart_topology",
+   "ssl": false,
+   "rawLog": true,
+   "rawDays": 30,
+   "statDays": 90,
+   "hourDays": 7
+  },
+  "dbsync": {
+   "enabled": true,
+   "intervalSec": 360,
+   "tableIntervalMin": 30,
+   "lagWarn": 30,
+   "lagCrit": 300,
+   "notify": true,
+   "exactTables": "",
+   "reportEnabled": true,
+   "reportTimes": "06:30, 16:30",
+   "reportOnlyDiff": true,
+   "master": {
+    "host": "172.20.0.2",
+    "port": 3306,
+    "user": "repmonitor",
+    "password": "repmonitor10709",
+    "database": "hos",
+    "ssl": false
+   },
+   "slave": {
+    "host": "172.20.0.15",
+    "port": 3306,
+    "user": "repmonitor",
+    "password": "repmonitor10709",
+    "database": "hos",
+    "ssl": false
+   },
+   "queries": [
+    {
+     "id": "7c6d725cde",
+     "name": "จำนวนแถว 12 ตาราง HOSxP",
+     "description": "แปลงจาก index.php — COUNT(*) ทั้งตาราง ±5 เผื่อข้อมูลเข้าระหว่างนับ · ตารางใหญ่ใช้เวลานาน จึงรันทุก 60 นาที (และทุกครั้งที่ส่งรายงาน)",
+     "target": "both",
+     "mode": "table",
+     "database": "",
+     "tolerance": 5,
+     "everyMin": 60,
+     "timeoutSec": 120,
+     "enabled": true,
+     "sql": "SELECT 'ovst' AS tbl, COUNT(*) AS total FROM ovst\nUNION ALL SELECT 'vn_stat', COUNT(*) FROM vn_stat\nUNION ALL SELECT 'an_stat', COUNT(*) FROM an_stat\nUNION ALL SELECT 'opdscreen', COUNT(*) FROM opdscreen\nUNION ALL SELECT 'opitemrece', COUNT(*) FROM opitemrece\nUNION ALL SELECT 'ipt', COUNT(*) FROM ipt\nUNION ALL SELECT 'ovstdiag', COUNT(*) FROM ovstdiag\nUNION ALL SELECT 'lab_order', COUNT(*) FROM lab_order\nUNION ALL SELECT 'lab_head', COUNT(*) FROM lab_head\nUNION ALL SELECT 'er_regist', COUNT(*) FROM er_regist\nUNION ALL SELECT 'patient', COUNT(*) FROM patient\nUNION ALL SELECT 'person', COUNT(*) FROM person"
+    },
+    {
+     "id": "2cd259c68a",
+     "name": "ข้อมูลวันนี้ แยกตาราง",
+     "description": "นับเฉพาะวันนี้ (ใช้ index วันที่ เบากว่ามาก) ตรวจได้ทุกรอบ",
+     "target": "both",
+     "mode": "table",
+     "database": "",
+     "tolerance": 3,
+     "everyMin": 0,
+     "timeoutSec": 30,
+     "enabled": true,
+     "sql": "SELECT 'ovst' AS tbl, COUNT(*) AS today FROM ovst WHERE vstdate = CURDATE()\nUNION ALL SELECT 'vn_stat', COUNT(*) FROM vn_stat WHERE vstdate = CURDATE()\nUNION ALL SELECT 'opdscreen', COUNT(*) FROM opdscreen WHERE vstdate = CURDATE()\nUNION ALL SELECT 'opitemrece', COUNT(*) FROM opitemrece WHERE rxdate = CURDATE()\nUNION ALL SELECT 'ovstdiag', COUNT(*) FROM ovstdiag WHERE vstdate = CURDATE()\nUNION ALL SELECT 'er_regist', COUNT(*) FROM er_regist WHERE vstdate = CURDATE()\nUNION ALL SELECT 'ipt', COUNT(*) FROM ipt WHERE regdate = CURDATE()\nUNION ALL SELECT 'lab_head', COUNT(*) FROM lab_head WHERE order_date = CURDATE()"
+    },
+    {
+     "id": "cbbb4e088d",
+     "name": "ข้อมูลถึงเมื่อวาน (ต้องตรงกัน 100%)",
+     "description": "ข้อมูลย้อนหลังไม่ควรเปลี่ยน — ถ้าต่างแม้ 1 แถว แปลว่าข้อมูล Slave ไม่ครบ/ถูกแก้",
+     "target": "both",
+     "mode": "table",
+     "database": "",
+     "tolerance": 0,
+     "everyMin": 60,
+     "timeoutSec": 120,
+     "enabled": true,
+     "sql": "SELECT 'ovst' AS tbl, COUNT(*) AS until_yesterday FROM ovst WHERE vstdate < CURDATE()\nUNION ALL SELECT 'vn_stat', COUNT(*) FROM vn_stat WHERE vstdate < CURDATE()\nUNION ALL SELECT 'opdscreen', COUNT(*) FROM opdscreen WHERE vstdate < CURDATE()\nUNION ALL SELECT 'opitemrece', COUNT(*) FROM opitemrece WHERE rxdate < CURDATE()\nUNION ALL SELECT 'ovstdiag', COUNT(*) FROM ovstdiag WHERE vstdate < CURDATE()\nUNION ALL SELECT 'er_regist', COUNT(*) FROM er_regist WHERE vstdate < CURDATE()\nUNION ALL SELECT 'ipt', COUNT(*) FROM ipt WHERE regdate < CURDATE()\nUNION ALL SELECT 'lab_head', COUNT(*) FROM lab_head WHERE order_date < CURDATE()"
+    },
+    {
+     "id": "96344226d2",
+     "name": "จำนวนผู้มารับบริการวันนี้",
+     "description": "นับ visit ของวันนี้ ใช้ตรวจว่า Slave รับข้อมูลทันหรือไม่",
+     "target": "both",
+     "mode": "value",
+     "database": "",
+     "tolerance": 0,
+     "everyMin": 0,
+     "timeoutSec": 15,
+     "enabled": true,
+     "sql": "SELECT COUNT(*) FROM ovst WHERE vstdate = CURDATE()"
+    },
+    {
+     "id": "2ca8160a63",
+     "name": "VN ล่าสุด",
+     "description": "VN ล่าสุดที่บันทึก ถ้าต่างกันแปลว่า Slave ยังตามไม่ทัน",
+     "target": "both",
+     "mode": "value",
+     "database": "",
+     "tolerance": 0,
+     "everyMin": 0,
+     "timeoutSec": 15,
+     "enabled": true,
+     "sql": "SELECT MAX(vn) FROM ovst"
+    },
+    {
+     "id": "d6b76ad83c",
+     "name": "เวลารับบริการล่าสุด",
+     "description": "เวลาของ visit ล่าสุด",
+     "target": "both",
+     "mode": "value",
+     "database": "",
+     "tolerance": 0,
+     "everyMin": 0,
+     "timeoutSec": 15,
+     "enabled": true,
+     "sql": "SELECT MAX(CONCAT(vstdate, ' ', vsttime)) FROM ovst WHERE vstdate >= CURDATE() - INTERVAL 1 DAY"
+    },
+    {
+     "id": "2872cda6be",
+     "name": "ผู้มารับบริการวันนี้ แยกแผนก",
+     "description": "เปรียบเทียบจำนวน visit รายแผนก",
+     "target": "both",
+     "mode": "table",
+     "database": "",
+     "tolerance": 0,
+     "everyMin": 0,
+     "timeoutSec": 15,
+     "enabled": true,
+     "sql": "SELECT o.main_dep, k.department, COUNT(*) AS visits\nFROM ovst o LEFT JOIN kskdepartment k ON k.depcode = o.main_dep\nWHERE o.vstdate = CURDATE()\nGROUP BY o.main_dep, k.department\nORDER BY o.main_dep"
+    },
+    {
+     "id": "d24abf9f7f",
+     "name": "จำนวนผู้ป่วยทั้งหมด (HN)",
+     "description": "ตรวจทุก 30 นาที",
+     "target": "both",
+     "mode": "value",
+     "database": "",
+     "tolerance": 0,
+     "everyMin": 30,
+     "timeoutSec": 15,
+     "enabled": true,
+     "sql": "SELECT COUNT(*) FROM patient"
+    },
+    {
+     "id": "085cb1ab08",
+     "name": "รายการยา/ค่าบริการวันนี้",
+     "description": "",
+     "target": "both",
+     "mode": "value",
+     "database": "",
+     "tolerance": 0,
+     "everyMin": 0,
+     "timeoutSec": 15,
+     "enabled": true,
+     "sql": "SELECT COUNT(*) FROM opitemrece WHERE rxdate = CURDATE()"
+    },
+    {
+     "id": "fa80b16874",
+     "name": "ผู้ป่วยในที่ยังไม่จำหน่าย (Admit)",
+     "description": "",
+     "target": "both",
+     "mode": "value",
+     "database": "",
+     "tolerance": 0,
+     "everyMin": 0,
+     "timeoutSec": 15,
+     "enabled": true,
+     "sql": "SELECT COUNT(*) FROM ipt WHERE dchdate IS NULL"
+    },
+    {
+     "id": "af21575f05",
+     "name": "นาฬิกาของเครื่อง (วินาที)",
+     "description": "เวลาเครื่องควรต่างกันไม่เกิน 5 วินาที (ตรวจ NTP)",
+     "target": "both",
+     "mode": "value",
+     "database": "",
+     "tolerance": 5,
+     "everyMin": 0,
+     "timeoutSec": 15,
+     "enabled": true,
+     "sql": "SELECT UNIX_TIMESTAMP()"
+    },
+    {
+     "id": "081fb56e00",
+     "name": "จำนวนตารางในฐานข้อมูล",
+     "description": "",
+     "target": "both",
+     "mode": "value",
+     "database": "",
+     "tolerance": 0,
+     "everyMin": 60,
+     "timeoutSec": 15,
+     "enabled": true,
+     "sql": "SELECT COUNT(*) FROM information_schema.TABLES WHERE TABLE_SCHEMA = DATABASE()"
+    }
+   ]
+  },
+  "api": {
+   "enabled": true,
+   "cors": [],
+   "defaultRate": 120,
+   "trustProxy": false,
+   "keys": [
+    {
+     "id": "50feb52a15",
+     "name": "Agent เครื่องลูกข่าย",
+     "role": "agent",
+     "prefix": "stk_GEPOTCN7",
+     "hash": "8db4ab1cc285d2cd0aea840effaa3f384c79365a2d2003d9f2c6d5d13331d16b",
+     "ips": [],
+     "rate": 0,
+     "created": 1794011918090,
+     "createdBy": "admin",
+     "expires": null,
+     "enabled": true,
+     "lastUsed": 1794077138465,
+     "lastIp": "127.0.0.1",
+     "uses": 19
+    },
+    {
+     "id": "e9d2588941",
+     "name": "wazuh",
+     "role": "integration",
+     "prefix": "stk_MPJyC7Ft",
+     "hash": "287b1247a34d2c169d8ec23240520ce2b003e04a748fff402aab6df78abb9a88",
+     "ips": [],
+     "rate": 0,
+     "created": 1794055100699,
+     "createdBy": "admin",
+     "expires": 1825591100699,
+     "enabled": true,
+     "lastUsed": 1794056525516,
+     "lastIp": "172.22.3.101",
+     "uses": 6
+    }
+   ]
+  },
+  "wazuh": {
+   "enabled": true,
+   "url": "https://172.22.3.101:55000",
+   "user": "wazuh-wui",
+   "password": "IwcO9PFpSbT*3d1pRH55+whQI.T3F5Bd",
+   "verifyTls": false,
+   "intervalMin": 5,
+   "scaMax": 20,
+   "pushEnabled": true,
+   "pushMinSeverity": "warning",
+   "inboundEnabled": true,
+   "inboundMinLevel": 7,
+   "inboundNotifyLevel": 12,
+   "inboundAutoResolveMin": 120,
+   "agentAlerts": true
+  },
+  "backup": {
+   "autoEnabled": true,
+   "time": "02:30",
+   "keep": 14,
+   "includeAlerts": true,
+   "lastAuto": "Sun Nov 08 2026"
+  },
+  "seq": {
+   "device": 20,
+   "alert": 88,
+   "user": 4
+  },
+  "inventory": {
+   "settings": {
+    "intervalMin": 60,
+    "staleDays": 3,
+    "lowDiskPct": 10,
+    "trackSoftware": true,
+    "trackIp": true,
+    "alertHardware": true
+   },
+   "assets": [
+    {
+     "id": 1,
+     "source": "agent",
+     "status": "active",
+     "assetTag": "",
+     "department": "",
+     "location": "",
+     "owner": "",
+     "note": "",
+     "purchaseDate": "",
+     "warrantyEnd": "",
+     "deviceId": null,
+     "firstSeen": 1794012271330,
+     "agentId": "34beb14f-be9a-49b9-8db9-cfbe424e74ad",
+     "agentVersion": "1.0.0",
+     "platform": "windows",
+     "hostname": "DESKTOP-5IH0DNI",
+     "domain": "WORKGROUP",
+     "user": "DESKTOP-5IH0DNI\\kkk",
+     "os": {
+      "name": "Microsoft Windows 11 Pro",
+      "version": "10.0.26300",
+      "build": "26300.9711",
+      "release": "26H2",
+      "arch": "64-bit",
+      "installDate": "2026-02-13T01:44:18",
+      "lastBoot": "2026-10-30T09:00:48"
+     },
+     "cpu": {
+      "model": "13th Gen Intel(R) Core(TM) i5-13420H",
+      "cores": 8,
+      "threads": 12,
+      "mhz": 2100,
+      "sockets": 1
+     },
+     "ramMB": 16384,
+     "ramModules": [
+      {
+       "sizeMB": 2048,
+       "speed": 4800,
+       "type": "",
+       "manufacturer": "SK Hynix",
+       "part": "H9JCNNNCP3MLYR-N6E",
+       "slot": "Controller0-ChannelA"
+      },
+      {
+       "sizeMB": 2048,
+       "speed": 4800,
+       "type": "",
+       "manufacturer": "SK Hynix",
+       "part": "H9JCNNNCP3MLYR-N6E",
+       "slot": "Controller0-ChannelB"
+      },
+      {
+       "sizeMB": 2048,
+       "speed": 4800,
+       "type": "",
+       "manufacturer": "SK Hynix",
+       "part": "H9JCNNNCP3MLYR-N6E",
+       "slot": "Controller0-ChannelC"
+      },
+      {
+       "sizeMB": 2048,
+       "speed": 4800,
+       "type": "",
+       "manufacturer": "SK Hynix",
+       "part": "H9JCNNNCP3MLYR-N6E",
+       "slot": "Controller0-ChannelD"
+      },
+      {
+       "sizeMB": 2048,
+       "speed": 4800,
+       "type": "",
+       "manufacturer": "SK Hynix",
+       "part": "H9JCNNNCP3MLYR-N6E",
+       "slot": "Controller1-ChannelA"
+      },
+      {
+       "sizeMB": 2048,
+       "speed": 4800,
+       "type": "",
+       "manufacturer": "SK Hynix",
+       "part": "H9JCNNNCP3MLYR-N6E",
+       "slot": "Controller1-ChannelB"
+      },
+      {
+       "sizeMB": 2048,
+       "speed": 4800,
+       "type": "",
+       "manufacturer": "SK Hynix",
+       "part": "H9JCNNNCP3MLYR-N6E",
+       "slot": "Controller1-ChannelC"
+      },
+      {
+       "sizeMB": 2048,
+       "speed": 4800,
+       "type": "",
+       "manufacturer": "SK Hynix",
+       "part": "H9JCNNNCP3MLYR-N6E",
+       "slot": "Controller1-ChannelD"
+      }
+     ],
+     "disks": [
+      {
+       "model": "NVMe BBR1TBNV3A",
+       "sizeGB": 1024,
+       "type": "NVMe",
+       "bus": "NVMe",
+       "serial": "0000_0000_0000_0000_0C82_D500_2507_0983.",
+       "health": "Healthy"
+      }
+     ],
+     "volumes": [
+      {
+       "mount": "C:",
+       "fs": "NTFS",
+       "label": "",
+       "sizeGB": 952.9,
+       "freeGB": 558.8
+      },
+      {
+       "mount": "D:",
+       "fs": "exFAT",
+       "label": "KDreHOS",
+       "sizeGB": 1862.7,
+       "freeGB": 1221.5
+      },
+      {
+       "mount": "E:",
+       "fs": "NTFS",
+       "label": "BackupImage",
+       "sizeGB": 5589,
+       "freeGB": 3961
+      },
+      {
+       "mount": "G:",
+       "fs": "",
+       "label": "",
+       "sizeGB": 0,
+       "freeGB": 0
+      }
+     ],
+     "gpus": [
+      {
+       "name": "Intel(R) UHD Graphics",
+       "vramMB": 1024,
+       "driver": "31.0.101.4032"
+      }
+     ],
+     "net": [
+      {
+       "name": "VirtualBox Host-Only Ethernet Adapter",
+       "mac": "0a:00:27:00:00:16",
+       "ipv4": [
+        "192.168.56.1"
+       ],
+       "gateway": "",
+       "dhcp": false
+      },
+      {
+       "name": "Realtek USB GbE Family Controller",
+       "mac": "00:e0:4c:68:03:14",
+       "ipv4": [
+        "172.16.1.15"
+       ],
+       "gateway": "172.16.3.254",
+       "dhcp": false
+      }
+     ],
+     "system": {
+      "manufacturer": "Acer",
+      "model": "Aspire A515-58M",
+      "serial": "NXKQ8ST002343097453400",
+      "uuid": "6348312e-e96b-ee11-80ef-40c2ba3338bb",
+      "bios": "V1.16",
+      "biosDate": "2026-05-15T07:00:00",
+      "chassis": "laptop"
+     },
+     "antivirus": [
+      {
+       "name": "Windows Defender",
+       "enabled": true,
+       "updated": true
+      }
+     ],
+     "monitors": [
+      {
+       "name": "ASL",
+       "serial": "16777216"
+      },
+      {
+       "name": "",
+       "serial": "0"
+      }
+     ],
+     "ips": [
+      "192.168.56.1",
+      "172.16.1.15"
+     ],
+     "macs": [
+      "0a:00:27:00:00:16",
+      "00:e0:4c:68:03:14"
+     ],
+     "software": [
+      {
+       "name": "Qwen 1.0.3",
+       "version": "1.0.3",
+       "publisher": "qwen.ai"
+      },
+      {
+       "name": "DBeaver 25.3.5",
+       "version": "25.3.5",
+       "publisher": "DBeaver Corp"
+      },
+      {
+       "name": "Git",
+       "version": "2.56.0.4",
+       "publisher": "The Git Development Community"
+      },
+      {
+       "name": "MariaDB 10.5 (x64)",
+       "version": "10.5.29.0",
+       "publisher": "MariaDB Corporation Ab"
+      },
+      {
+       "name": "Mozilla Firefox (x64 th)",
+       "version": "159.0",
+       "publisher": "Mozilla"
+      },
+      {
+       "name": "Mozilla Maintenance Service",
+       "version": "147.0.3",
+       "publisher": "Mozilla"
+      },
+      {
+       "name": "PremiumSoft Navicat Premium 17.2",
+       "version": "17.2.5",
+       "publisher": "PremiumSoft CyberTech Ltd."
+      },
+      {
+       "name": "Notepad++ (64-bit x64)",
+       "version": "8.9.8.1",
+       "publisher": "Notepad++ Team"
+      },
+      {
+       "name": "Microsoft Project - en-us",
+       "version": "16.0.20527.20150",
+       "publisher": "Microsoft Corporation"
+      },
+      {
+       "name": "Microsoft Project - th-th",
+       "version": "16.0.20527.20150",
+       "publisher": "Microsoft Corporation"
+      },
+      {
+       "name": "Microsoft Office Professional Plus 2016 - en-us",
+       "version": "16.0.20527.20150",
+       "publisher": "Microsoft Corporation"
+      },
+      {
+       "name": "Microsoft Office Professional Plus 2016 - th-th",
+       "version": "16.0.20527.20150",
+       "publisher": "Microsoft Corporation"
+      },
+      {
+       "name": "VNC Enterprise Edition E4.4.2",
+       "version": "E4.4.2 (r13117)",
+       "publisher": "RealVNC Ltd."
+      },
+      {
+       "name": "Microsoft Visio - en-us",
+       "version": "16.0.20527.20150",
+       "publisher": "Microsoft Corporation"
+      },
+      {
+       "name": "Microsoft Visio - th-th",
+       "version": "16.0.20527.20150",
+       "publisher": "Microsoft Corporation"
+      },
+      {
+       "name": "VNC Mirror Driver 1.8.0",
+       "version": "1.8.0",
+       "publisher": "RealVNC Ltd."
+      },
+      {
+       "name": "Zed Attack Proxy by Checkmarx 2.17.0",
+       "version": "2.17.0",
+       "publisher": "ZAP"
+      },
+      {
+       "name": "Node.js",
+       "version": "26.13.0",
+       "publisher": "Node.js Foundation"
+      },
+      {
+       "name": "FortiClient VPN",
+       "version": "7.4.3.6002",
+       "publisher": "Fortinet Technologies Inc"
+      },
+      {
+       "name": "Microsoft Windows Application Compatibility Fix Database",
+       "version": "",
+       "publisher": ""
+      },
+      {
+       "name": "Java(TM) SE Development Kit 27.0.1.0.3 (64-bit)",
+       "version": "27.0.1.0",
+       "publisher": "Oracle Corporation"
+      },
+      {
+       "name": "Google Drive",
+       "version": "133.0.2.0",
+       "publisher": "Google LLC"
+      },
+      {
+       "name": "Microsoft SQL Server 2012 Management Objects  (x64)",
+       "version": "11.4.7001.0",
+       "publisher": "Microsoft Corporation"
+      },
+      {
+       "name": "LADMLauncherService",
+       "version": "1.0.0843",
+       "publisher": "Lenovo"
+      },
+      {
+       "name": "Microsoft SQL Server 2012 Express LocalDB",
+       "version": "11.4.7001.0",
+       "publisher": "Microsoft Corporation"
+      },
+      {
+       "name": "Microsoft System CLR Types for SQL Server 2012 (x64)",
+       "version": "11.4.7001.0",
+       "publisher": "Microsoft Corporation"
+      },
+      {
+       "name": "Oracle VirtualBox 7.2.22",
+       "version": "7.2.22",
+       "publisher": "Oracle and/or its affiliates"
+      },
+      {
+       "name": "PuTTY release 0.83 (64-bit)",
+       "version": "0.83.0.0",
+       "publisher": "Simon Tatham"
+      },
+      {
+       "name": "Tenable Nessus (x64)",
+       "version": "10.12.6.20073",
+       "publisher": "Tenable, Inc."
+      },
+      {
+       "name": "AnyDesk",
+       "version": "ad 9.8.3",
+       "publisher": "AnyDesk Software GmbH"
+      },
+      {
+       "name": "Dropbox",
+       "version": "278.4.3944",
+       "publisher": "Dropbox, Inc."
+      },
+      {
+       "name": "Google Chrome",
+       "version": "156.0.8078.81",
+       "publisher": "Google LLC"
+      },
+      {
+       "name": "Copilot",
+       "version": "157.0.4341.42",
+       "publisher": "Microsoft Corporation"
+      },
+      {
+       "name": "Microsoft Edge",
+       "version": "157.0.4341.42",
+       "publisher": "Microsoft Corporation"
+      },
+      {
+       "name": "Npcap OEM",
+       "version": "1.72",
+       "publisher": "Nmap Project"
+      },
+      {
+       "name": "Samsung Printer Live Update",
+       "version": "1.01.00:04(2013-04-22)",
+       "publisher": "Samsung Electronics Co., Ltd."
+      },
+      {
+       "name": "WinRAR 5.20 (32-bit)",
+       "version": "5.20.0",
+       "publisher": "win.rar GmbH"
+      },
+      {
+       "name": "Microsoft Visual C++ v14 Redistributable (x86) - 14.50.35719",
+       "version": "14.50.35719.0",
+       "publisher": "Microsoft Corporation"
+      },
+      {
+       "name": "Radmin Viewer 3.5",
+       "version": "3.50.0000",
+       "publisher": "Famatech"
+      },
+      {
+       "name": "Radmin Server 3.5",
+       "version": "3.50.0000",
+       "publisher": "Famatech"
+      },
+      {
+       "name": "Cisco Network Assistant",
+       "version": "6.3(4)",
+       "publisher": "Cisco Systems, Inc"
+      },
+      {
+       "name": "LANguard Network Scanner",
+       "version": "",
+       "publisher": ""
+      },
+      {
+       "name": "MySQL Administrator 1.1",
+       "version": "1.1.9",
+       "publisher": "MySQL AB"
+      },
+      {
+       "name": "Microsoft Visual C++ v14 Redistributable (x64) - 14.50.35719",
+       "version": "14.50.35719.0",
+       "publisher": "Microsoft Corporation"
+      },
+      {
+       "name": "Microsoft Visual C++ 2008 Redistributable - x86 9.0.30729.6161",
+       "version": "9.0.30729.6161",
+       "publisher": "Microsoft Corporation"
+      },
+      {
+       "name": "Intel(R) Chipset Device Software",
+       "version": "10.1.19199.8340",
+       "publisher": "Intel(R) Corporation"
+      },
+      {
+       "name": "MobaXterm",
+       "version": "26.0.0.5436",
+       "publisher": "Mobatek"
+      }
+     ],
+     "softwareAt": 1794077138466,
+     "lastSeen": 1794077138466,
+     "lastIp": "127.0.0.1",
+     "reports": 19
+    }
+   ],
+   "changes": [
+    {
+     "id": 1,
+     "at": 1794012271331,
+     "assetId": 1,
+     "host": "DESKTOP-5IH0DNI",
+     "dept": "",
+     "by": "agent:Agent เครื่องลูกข่าย",
+     "cat": "new",
+     "field": "asset",
+     "label": "ลงทะเบียนเครื่องใหม่ (Agent)",
+     "old": "",
+     "new": "DESKTOP-5IH0DNI · Microsoft Windows 11 Pro 26H2 build 26300.9711 · 13th Gen Intel(R) Core(TM) i5-13420H · RAM 16 GB · NVMe BBR1TBNV3A 1024 GB NVMe"
+    }
+   ],
+   "seq": {
+    "asset": 1,
+    "change": 1
+   }
+  },
+  "ipscan": {
+   "settings": {
+    "concurrency": 64,
+    "timeoutMs": 800,
+    "ports": [
+     445,
+     3389,
+     135,
+     139,
+     22,
+     80,
+     443,
+     9100,
+     554,
+     8080
+    ],
+    "resolveNames": true,
+    "schedule": {
+     "enabled": true,
+     "everyHours": 24,
+     "at": "11:30"
+    },
+    "lastScheduled": 1794025804289
+   },
+   "ranges": [
+    {
+     "id": "dc3f85d716",
+     "name": "vlan16",
+     "spec": "172.16.0.0/22",
+     "vlan": "16",
+     "note": "vlan16",
+     "enabled": true,
+     "count": 1022,
+     "first": "172.16.0.1",
+     "last": "172.16.3.254",
+     "created": 1794003986438
+    },
+    {
+     "id": "20f404fccb",
+     "name": "vlan17",
+     "spec": "172.17.0.0/22",
+     "vlan": "17",
+     "note": "vlan17",
+     "enabled": true,
+     "count": 1022,
+     "first": "172.17.0.1",
+     "last": "172.17.3.254",
+     "created": 1794004015396
+    },
+    {
+     "id": "f7eb7442b3",
+     "name": "vlan18",
+     "spec": "172.18.0.0/22",
+     "vlan": "18",
+     "note": "vlan18",
+     "enabled": true,
+     "count": 1022,
+     "first": "172.18.0.1",
+     "last": "172.18.3.254",
+     "created": 1794004043204
+    },
+    {
+     "id": "30ebdcda28",
+     "name": "vlan19",
+     "spec": "172.19.0.0/22",
+     "vlan": "19",
+     "note": "vlan19",
+     "enabled": true,
+     "count": 1022,
+     "first": "172.19.0.1",
+     "last": "172.19.3.254",
+     "created": 1794004167260
+    }
+   ],
+   "results": {
+    "dc3f85d716": {
+     "at": 1794025824702,
+     "ms": 20409,
+     "total": 1022,
+     "alive": 288,
+     "hosts": [
+      {
+       "ip": "172.16.0.2",
+       "rtt": 34,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.9",
+       "rtt": 16,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.14",
+       "rtt": 1,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.15",
+       "rtt": 36,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.16",
+       "rtt": 35,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.19",
+       "rtt": 36,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.21",
+       "rtt": 18,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.25",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.29",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.33",
+       "rtt": 13,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.34",
+       "rtt": 24,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.38",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.46",
+       "rtt": 27,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.51",
+       "rtt": 13,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.52",
+       "rtt": 28,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.53",
+       "rtt": 14,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.55",
+       "rtt": 14,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.57",
+       "rtt": 14,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.58",
+       "rtt": 28,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.59",
+       "rtt": 14,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.60",
+       "rtt": 29,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.61",
+       "rtt": 15,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.65",
+       "rtt": 30,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.67",
+       "rtt": 15,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.68",
+       "rtt": 30,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.72",
+       "rtt": 15,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.76",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.87",
+       "rtt": 33,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.89",
+       "rtt": 16,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.90",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.91",
+       "rtt": 14,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.93",
+       "rtt": 13,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.95",
+       "rtt": 29,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.96",
+       "rtt": 15,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.97",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.98",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.99",
+       "rtt": 30,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.100",
+       "rtt": 15,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.107",
+       "rtt": 31,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.111",
+       "rtt": 31,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.117",
+       "rtt": 32,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.124",
+       "rtt": 9,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.125",
+       "rtt": 9,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.128",
+       "rtt": 11,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.131",
+       "rtt": 10,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.138",
+       "rtt": 12,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.140",
+       "rtt": 13,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.142",
+       "rtt": 13,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.144",
+       "rtt": 14,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.145",
+       "rtt": 14,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.146",
+       "rtt": 14,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.147",
+       "rtt": 27,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.148",
+       "rtt": 27,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.150",
+       "rtt": 29,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.166",
+       "rtt": 30,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.172",
+       "rtt": 31,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.180",
+       "rtt": 20,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.182",
+       "rtt": 21,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.184",
+       "rtt": 11,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.185",
+       "rtt": 15,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.186",
+       "rtt": 290,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.202",
+       "rtt": 32,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.210",
+       "rtt": 32,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.211",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.214",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.217",
+       "rtt": 33,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.227",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.0.232",
+       "rtt": 29.1,
+       "via": "tcp:80"
+      },
+      {
+       "ip": "172.16.1.6",
+       "rtt": 1,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.7",
+       "rtt": 1,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.9",
+       "rtt": 1,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.11",
+       "rtt": 2,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.15",
+       "rtt": 1,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.18",
+       "rtt": 2,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.27",
+       "rtt": 15,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.32",
+       "rtt": 30,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.34",
+       "rtt": 14,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.41",
+       "rtt": 46,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.51",
+       "rtt": 16,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.55",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.61",
+       "rtt": 33,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.63",
+       "rtt": 34,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.67",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.74",
+       "rtt": 16,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.76",
+       "rtt": 21,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.85",
+       "rtt": 30,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.92",
+       "rtt": 16,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.95",
+       "rtt": 32,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.98",
+       "rtt": 3,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.101",
+       "rtt": 33,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.105",
+       "rtt": 16,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.106",
+       "rtt": 34,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.108",
+       "rtt": 33,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.112",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.118",
+       "rtt": 35,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.124",
+       "rtt": 36,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.127",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.139",
+       "rtt": 34,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.143",
+       "rtt": 42,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.144",
+       "rtt": 16,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.148",
+       "rtt": 16,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.155",
+       "rtt": 1,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.159",
+       "rtt": 26,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.162",
+       "rtt": 13,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.165",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.186",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.191",
+       "rtt": 34,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.193",
+       "rtt": 33,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.194",
+       "rtt": 16,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.197",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.199",
+       "rtt": 19,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.217",
+       "rtt": 13,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.230",
+       "rtt": 26,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.234",
+       "rtt": 11,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.236",
+       "rtt": 18,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.241",
+       "rtt": 31,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.1.243",
+       "rtt": 32,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.3",
+       "rtt": 15,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.8",
+       "rtt": 16,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.14",
+       "rtt": 15,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.15",
+       "rtt": 23,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.17",
+       "rtt": 16,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.20",
+       "rtt": 16,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.23",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.25",
+       "rtt": 11,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.27",
+       "rtt": 22,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.32",
+       "rtt": 255.5,
+       "via": "tcp:445"
+      },
+      {
+       "ip": "172.16.2.35",
+       "rtt": 27,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.38",
+       "rtt": 27,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.39",
+       "rtt": 1,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.40",
+       "rtt": 28,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.41",
+       "rtt": 28,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.45",
+       "rtt": 14,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.46",
+       "rtt": 14,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.56",
+       "rtt": 30,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.57",
+       "rtt": 30,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.60",
+       "rtt": 15,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.61",
+       "rtt": 31,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.66",
+       "rtt": 32,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.73",
+       "rtt": 34,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.90",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.102",
+       "rtt": 30,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.104",
+       "rtt": 15,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.106",
+       "rtt": 31,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.107",
+       "rtt": 31,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.110",
+       "rtt": 35,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.115",
+       "rtt": 25,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.116",
+       "rtt": 25,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.122",
+       "rtt": 23,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.126",
+       "rtt": 12,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.129",
+       "rtt": 25,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.130",
+       "rtt": 12,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.131",
+       "rtt": 25,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.132",
+       "rtt": 12,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.133",
+       "rtt": 25,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.136",
+       "rtt": 26,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.145",
+       "rtt": 29,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.147",
+       "rtt": 30,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.149",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.150",
+       "rtt": 33,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.152",
+       "rtt": 31,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.153",
+       "rtt": 14,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.155",
+       "rtt": 29,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.157",
+       "rtt": 15,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.160",
+       "rtt": 9,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.161",
+       "rtt": 21,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.163",
+       "rtt": 10,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.164",
+       "rtt": 30,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.173",
+       "rtt": 22,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.179",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.182",
+       "rtt": 33,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.184",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.190",
+       "rtt": 18,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.192",
+       "rtt": 18,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.193",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.194",
+       "rtt": 18,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.195",
+       "rtt": 18,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.196",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.197",
+       "rtt": 18,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.202",
+       "rtt": 35,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.209",
+       "rtt": 28,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.211",
+       "rtt": 26,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.213",
+       "rtt": 13,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.217",
+       "rtt": 13,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.219",
+       "rtt": 14,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.222",
+       "rtt": 28,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.226",
+       "rtt": 27,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.227",
+       "rtt": 14,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.229",
+       "rtt": 28,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.237",
+       "rtt": 30,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.251",
+       "rtt": 28,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.2.254",
+       "rtt": 34,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.3",
+       "rtt": 31,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.4",
+       "rtt": 29,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.8",
+       "rtt": 13,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.13",
+       "rtt": 42.7,
+       "via": "tcp:80"
+      },
+      {
+       "ip": "172.16.3.21",
+       "rtt": 31,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.24",
+       "rtt": 15,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.31",
+       "rtt": 32,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.34",
+       "rtt": 16,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.37",
+       "rtt": 16,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.42",
+       "rtt": 31,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.49",
+       "rtt": 24,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.54",
+       "rtt": 3,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.56",
+       "rtt": 25,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.58",
+       "rtt": 13,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.61",
+       "rtt": 13,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.64",
+       "rtt": 13,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.65",
+       "rtt": 13,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.70",
+       "rtt": 10,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.71",
+       "rtt": 19,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.74",
+       "rtt": 16,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.81",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.82",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.84",
+       "rtt": 33,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.90",
+       "rtt": 31,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.93",
+       "rtt": 31,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.94",
+       "rtt": 31,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.95",
+       "rtt": 32,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.96",
+       "rtt": 31,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.97",
+       "rtt": 16,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.98",
+       "rtt": 16,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.99",
+       "rtt": 16,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.100",
+       "rtt": 15,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.101",
+       "rtt": 31,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.102",
+       "rtt": 32,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.109",
+       "rtt": 18,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.118",
+       "rtt": 44.4,
+       "via": "tcp:22"
+      },
+      {
+       "ip": "172.16.3.119",
+       "rtt": 35.9,
+       "via": "tcp:22"
+      },
+      {
+       "ip": "172.16.3.120",
+       "rtt": 52.7,
+       "via": "tcp:22"
+      },
+      {
+       "ip": "172.16.3.121",
+       "rtt": 33,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.122",
+       "rtt": 34,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.125",
+       "rtt": 16,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.129",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.134",
+       "rtt": 35,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.152",
+       "rtt": 31,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.153",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.154",
+       "rtt": 16,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.155",
+       "rtt": 30,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.156",
+       "rtt": 30,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.158",
+       "rtt": 15,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.159",
+       "rtt": 30,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.160",
+       "rtt": 15,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.162",
+       "rtt": 16,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.163",
+       "rtt": 16,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.164",
+       "rtt": 31,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.165",
+       "rtt": 16,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.166",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.167",
+       "rtt": 16,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.169",
+       "rtt": 16,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.170",
+       "rtt": 59.3,
+       "via": "tcp:445"
+      },
+      {
+       "ip": "172.16.3.173",
+       "rtt": 32,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.176",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.179",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.181",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.186",
+       "rtt": 34,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.187",
+       "rtt": 34,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.188",
+       "rtt": 34,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.193",
+       "rtt": 35,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.196",
+       "rtt": 14,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.203",
+       "rtt": 30,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.208",
+       "rtt": 30,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.210",
+       "rtt": 31,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.221",
+       "rtt": 32,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.224",
+       "rtt": 16,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.225",
+       "rtt": 34,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.228",
+       "rtt": 25.3,
+       "via": "tcp:445"
+      },
+      {
+       "ip": "172.16.3.229",
+       "rtt": 46.2,
+       "via": "tcp:22"
+      },
+      {
+       "ip": "172.16.3.231",
+       "rtt": 33,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.232",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.233",
+       "rtt": 515,
+       "via": "tcp:445"
+      },
+      {
+       "ip": "172.16.3.234",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.235",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.237",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.238",
+       "rtt": 18,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.239",
+       "rtt": 18,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.240",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.241",
+       "rtt": 18,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.242",
+       "rtt": 23,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.243",
+       "rtt": 18,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.244",
+       "rtt": 23,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.245",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.247",
+       "rtt": 15,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.249",
+       "rtt": 13,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.250",
+       "rtt": 42,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.252",
+       "rtt": 12,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.253",
+       "rtt": 18,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.16.3.254",
+       "rtt": 9,
+       "via": "icmp"
+      }
+     ],
+     "by": "schedule",
+     "appeared": [],
+     "gone": []
+    },
+    "20f404fccb": {
+     "at": 1794025848658,
+     "ms": 23956,
+     "total": 1022,
+     "alive": 93,
+     "hosts": [
+      {
+       "ip": "172.17.0.40",
+       "rtt": 6,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.0.218",
+       "rtt": 197.1,
+       "via": "tcp:445"
+      },
+      {
+       "ip": "172.17.0.223",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.5",
+       "rtt": 13,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.7",
+       "rtt": 18,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.10",
+       "rtt": 187.2,
+       "via": "tcp:445"
+      },
+      {
+       "ip": "172.17.1.11",
+       "rtt": 18,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.12",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.13",
+       "rtt": 12,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.15",
+       "rtt": 8,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.16",
+       "rtt": 8,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.21",
+       "rtt": 15,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.24",
+       "rtt": 15,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.26",
+       "rtt": 16,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.27",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.28",
+       "rtt": 16,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.37",
+       "rtt": 16,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.40",
+       "rtt": 16,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.41",
+       "rtt": 16,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.48",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.49",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.53",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.54",
+       "rtt": 12,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.55",
+       "rtt": 9,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.57",
+       "rtt": 11,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.63",
+       "rtt": 13,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.64",
+       "rtt": 14,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.65",
+       "rtt": 15,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.66",
+       "rtt": 15,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.69",
+       "rtt": 14,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.71",
+       "rtt": 14,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.72",
+       "rtt": 15,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.73",
+       "rtt": 15,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.74",
+       "rtt": 15,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.76",
+       "rtt": 15,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.77",
+       "rtt": 15,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.81",
+       "rtt": 15,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.82",
+       "rtt": 15,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.83",
+       "rtt": 15,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.87",
+       "rtt": 16,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.88",
+       "rtt": 22,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.97",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.107",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.108",
+       "rtt": 12,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.109",
+       "rtt": 16,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.111",
+       "rtt": 15,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.112",
+       "rtt": 14,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.115",
+       "rtt": 18,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.116",
+       "rtt": 20,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.117",
+       "rtt": 16,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.119",
+       "rtt": 7,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.123",
+       "rtt": 7,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.124",
+       "rtt": 9,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.126",
+       "rtt": 8,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.127",
+       "rtt": 14,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.132",
+       "rtt": 13,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.133",
+       "rtt": 12,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.141",
+       "rtt": 31.7,
+       "via": "tcp:22"
+      },
+      {
+       "ip": "172.17.1.142",
+       "rtt": 15,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.145",
+       "rtt": 15,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.147",
+       "rtt": 14,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.148",
+       "rtt": 175.8,
+       "via": "tcp:445"
+      },
+      {
+       "ip": "172.17.1.151",
+       "rtt": 15,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.152",
+       "rtt": 14,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.158",
+       "rtt": 15,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.159",
+       "rtt": 15,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.163",
+       "rtt": 16,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.166",
+       "rtt": 16,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.170",
+       "rtt": 19,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.174",
+       "rtt": 16,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.175",
+       "rtt": 10,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.191",
+       "rtt": 9,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.194",
+       "rtt": 6,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.201",
+       "rtt": 11,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.209",
+       "rtt": 12,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.211",
+       "rtt": 12,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.212",
+       "rtt": 12,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.215",
+       "rtt": 12,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.217",
+       "rtt": 12,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.218",
+       "rtt": 12,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.225",
+       "rtt": 32,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.229",
+       "rtt": 13,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.230",
+       "rtt": 10,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.232",
+       "rtt": 3,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.244",
+       "rtt": 15,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.247",
+       "rtt": 14,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.248",
+       "rtt": 14,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.1.249",
+       "rtt": 14,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.3.222",
+       "rtt": 2,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.3.232",
+       "rtt": 3,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.3.238",
+       "rtt": 19,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.3.253",
+       "rtt": 2,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.17.3.254",
+       "rtt": 2,
+       "via": "icmp"
+      }
+     ],
+     "by": "schedule",
+     "appeared": [],
+     "gone": []
+    },
+    "f7eb7442b3": {
+     "at": 1794025872236,
+     "ms": 23578,
+     "total": 1022,
+     "alive": 17,
+     "hosts": [
+      {
+       "ip": "172.18.0.24",
+       "rtt": 3,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.18.0.39",
+       "rtt": 3,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.18.0.51",
+       "rtt": 18,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.18.0.52",
+       "rtt": 19,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.18.0.79",
+       "rtt": 3,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.18.0.88",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.18.0.100",
+       "rtt": 14,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.18.0.101",
+       "rtt": 15,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.18.0.103",
+       "rtt": 15,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.18.0.160",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.18.1.113",
+       "rtt": 16,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.18.3.235",
+       "rtt": 12,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.18.3.241",
+       "rtt": 14.5,
+       "via": "tcp:22"
+      },
+      {
+       "ip": "172.18.3.247",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.18.3.250",
+       "rtt": 22.8,
+       "via": "tcp:22"
+      },
+      {
+       "ip": "172.18.3.253",
+       "rtt": 8.5,
+       "via": "tcp:22"
+      },
+      {
+       "ip": "172.18.3.254",
+       "rtt": 12,
+       "via": "icmp"
+      }
+     ],
+     "by": "schedule",
+     "appeared": [],
+     "gone": []
+    },
+    "30ebdcda28": {
+     "at": 1794025896280,
+     "ms": 24044,
+     "total": 1022,
+     "alive": 21,
+     "hosts": [
+      {
+       "ip": "172.19.0.5",
+       "rtt": 17,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.19.0.11",
+       "rtt": 18,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.19.0.125",
+       "rtt": 61,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.19.0.136",
+       "rtt": 10,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.19.0.179",
+       "rtt": 5,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.19.1.220",
+       "rtt": 21,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.19.1.245",
+       "rtt": 15,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.19.2.38",
+       "rtt": 15,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.19.2.82",
+       "rtt": 16,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.19.2.85",
+       "rtt": 115,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.19.2.123",
+       "rtt": 12,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.19.2.126",
+       "rtt": 194,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.19.2.191",
+       "rtt": 21,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.19.2.206",
+       "rtt": 32,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.19.2.245",
+       "rtt": 18,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.19.3.103",
+       "rtt": 21,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.19.3.124",
+       "rtt": 103,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.19.3.146",
+       "rtt": 174,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.19.3.155",
+       "rtt": 68,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.19.3.240",
+       "rtt": 15,
+       "via": "icmp"
+      },
+      {
+       "ip": "172.19.3.254",
+       "rtt": 16,
+       "via": "icmp"
+      }
+     ],
+     "by": "schedule",
+     "appeared": [],
+     "gone": []
+    }
+   },
+   "history": [
+    {
+     "at": 1794025824702,
+     "rangeId": "dc3f85d716",
+     "name": "vlan16",
+     "total": 1022,
+     "alive": 288
+    },
+    {
+     "at": 1794025848658,
+     "rangeId": "20f404fccb",
+     "name": "vlan17",
+     "total": 1022,
+     "alive": 93
+    },
+    {
+     "at": 1794025872236,
+     "rangeId": "f7eb7442b3",
+     "name": "vlan18",
+     "total": 1022,
+     "alive": 17
+    },
+    {
+     "at": 1794025896280,
+     "rangeId": "30ebdcda28",
+     "name": "vlan19",
+     "total": 1022,
+     "alive": 21
+    }
+   ]
+  },
+  "alerts": [
+   {
+    "id": 1,
+    "deviceId": -1,
+    "deviceName": "ฐานข้อมูล HIS (Master/Slave)",
+    "ip": "172.20.0.2 → 172.20.0.15",
+    "severity": "critical",
+    "kind": "db:repl_broken",
+    "message": "Replication หยุดทำงาน — IO thread: No, SQL thread: No · Error during XID COMMIT: failed to update GTID state in mysql.gtid_slave_pos: 1114:  The table 'replicate_log' is full, Error_code: 1114; The table 'gtid_slave_pos' is full, Error_code: 1114; the event's master log master-bin.032124, end_log_pos 106533757",
+    "status": "resolved",
+    "created": 1793871548306,
+    "ackBy": null,
+    "resolvedAt": 1793955786298
+   },
+   {
+    "id": 2,
+    "deviceId": -1,
+    "deviceName": "ฐานข้อมูล HIS (Master/Slave)",
+    "ip": "172.20.0.2 → 172.20.0.15",
+    "severity": "warning",
+    "kind": "db:slave_rw",
+    "message": "เครื่อง Slave ไม่ได้เปิด read_only — มีความเสี่ยงที่ข้อมูลจะถูกแก้ไขตรงที่ Slave จนไม่ตรงกับ Master",
+    "status": "resolved",
+    "created": 1793871548306,
+    "ackBy": "admin",
+    "resolvedAt": 1794050119375
+   },
+   {
+    "id": 3,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1793955621486,
+    "ackBy": null,
+    "resolvedAt": 1793955631335
+   },
+   {
+    "id": 4,
+    "deviceId": -1,
+    "deviceName": "ฐานข้อมูล HIS (Master/Slave)",
+    "ip": "172.20.0.2 → 172.20.0.15",
+    "severity": "critical",
+    "kind": "db:repl_lag",
+    "message": "Replication ล่าช้า 27250 วินาที (เกณฑ์วิกฤต 300 วินาที)",
+    "status": "resolved",
+    "created": 1793955904759,
+    "ackBy": null,
+    "resolvedAt": 1793956691030
+   },
+   {
+    "id": 5,
+    "deviceId": 12,
+    "deviceName": "Chart-MA",
+    "ip": "172.16.3.249",
+    "severity": "info",
+    "kind": "latency",
+    "message": "Chart-MA มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1793956510787,
+    "ackBy": null,
+    "resolvedAt": 1793956520661
+   },
+   {
+    "id": 6,
+    "deviceId": -1,
+    "deviceName": "ฐานข้อมูล HIS (Master/Slave)",
+    "ip": "172.20.0.2 → 172.20.0.15",
+    "severity": "warning",
+    "kind": "db:q:7c6d725cde",
+    "message": "ข้อมูลไม่ตรงกัน: จำนวนแถว 12 ตาราง HOSxP",
+    "status": "resolved",
+    "created": 1793956691029,
+    "ackBy": null,
+    "resolvedAt": 1793959608205
+   },
+   {
+    "id": 7,
+    "deviceId": -1,
+    "deviceName": "ฐานข้อมูล HIS (Master/Slave)",
+    "ip": "172.20.0.2 → 172.20.0.15",
+    "severity": "warning",
+    "kind": "db:q:d24abf9f7f",
+    "message": "ข้อมูลไม่ตรงกัน: จำนวนผู้ป่วยทั้งหมด (HN) (ต่างกัน 10)",
+    "status": "resolved",
+    "created": 1793956691029,
+    "ackBy": null,
+    "resolvedAt": 1793958131208
+   },
+   {
+    "id": 8,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1793958631635,
+    "ackBy": null,
+    "resolvedAt": 1793958641525
+   },
+   {
+    "id": 9,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1793959832284,
+    "ackBy": null,
+    "resolvedAt": 1793959842202
+   },
+   {
+    "id": 10,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1793961633338,
+    "ackBy": null,
+    "resolvedAt": 1793961643182
+   },
+   {
+    "id": 11,
+    "deviceId": 3,
+    "deviceName": "OPD_NEW_FL1",
+    "ip": "172.16.3.245",
+    "severity": "warning",
+    "kind": "down",
+    "message": "OPD_NEW_FL1 (172.16.3.245) ไม่ตอบสนอง ICMP",
+    "status": "resolved",
+    "created": 1793961904262,
+    "ackBy": null,
+    "resolvedAt": 1793962033350
+   },
+   {
+    "id": 12,
+    "deviceId": 11,
+    "deviceName": "AE",
+    "ip": "172.16.3.250",
+    "severity": "warning",
+    "kind": "down",
+    "message": "AE (172.16.3.250) ไม่ตอบสนอง ICMP",
+    "status": "resolved",
+    "created": 1793961904277,
+    "ackBy": null,
+    "resolvedAt": 1793962043357
+   },
+   {
+    "id": 13,
+    "deviceId": 17,
+    "deviceName": "ER-Old",
+    "ip": "172.16.3.240",
+    "severity": "warning",
+    "kind": "down",
+    "message": "ER-Old (172.16.3.240) ไม่ตอบสนอง ICMP",
+    "status": "resolved",
+    "created": 1793961904290,
+    "ackBy": null,
+    "resolvedAt": 1793962183419
+   },
+   {
+    "id": 14,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1793963444208,
+    "ackBy": null,
+    "resolvedAt": 1793963454064
+   },
+   {
+    "id": 15,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1793968856683,
+    "ackBy": null,
+    "resolvedAt": 1793968866594
+   },
+   {
+    "id": 16,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1793972468559,
+    "ackBy": null,
+    "resolvedAt": 1793972478474
+   },
+   {
+    "id": 17,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1793973068850,
+    "ackBy": null,
+    "resolvedAt": 1793973078696
+   },
+   {
+    "id": 18,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1793974269285,
+    "ackBy": null,
+    "resolvedAt": 1793974279197
+   },
+   {
+    "id": 19,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1793974869667,
+    "ackBy": null,
+    "resolvedAt": 1793974879529
+   },
+   {
+    "id": 20,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1793975469982,
+    "ackBy": null,
+    "resolvedAt": 1793975479839
+   },
+   {
+    "id": 21,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1793976680637,
+    "ackBy": null,
+    "resolvedAt": 1793976690485
+   },
+   {
+    "id": 22,
+    "deviceId": -1,
+    "deviceName": "ฐานข้อมูล HIS (Master/Slave)",
+    "ip": "172.20.0.2 → 172.20.0.15",
+    "severity": "critical",
+    "kind": "db:repl_broken",
+    "message": "Replication หยุดทำงาน — IO thread: No, SQL thread: No",
+    "status": "resolved",
+    "created": 1793978651179,
+    "ackBy": null,
+    "resolvedAt": 1794004701682
+   },
+   {
+    "id": 23,
+    "deviceId": -1,
+    "deviceName": "ฐานข้อมูล HIS (Master/Slave)",
+    "ip": "172.20.0.2 → 172.20.0.15",
+    "severity": "warning",
+    "kind": "db:q:7c6d725cde",
+    "message": "ข้อมูลไม่ตรงกัน: จำนวนแถว 12 ตาราง HOSxP",
+    "status": "resolved",
+    "created": 1794004836862,
+    "ackBy": "admin",
+    "resolvedAt": 1794025703024
+   },
+   {
+    "id": 24,
+    "deviceId": -1,
+    "deviceName": "ฐานข้อมูล HIS (Master/Slave)",
+    "ip": "172.20.0.2 → 172.20.0.15",
+    "severity": "warning",
+    "kind": "db:q:cbbb4e088d",
+    "message": "ข้อมูลไม่ตรงกัน: ข้อมูลถึงเมื่อวาน (ต้องตรงกัน 100%)",
+    "status": "resolved",
+    "created": 1794004836862,
+    "ackBy": null,
+    "resolvedAt": 1794008505279
+   },
+   {
+    "id": 25,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794006137655,
+    "ackBy": null,
+    "resolvedAt": 1794006147539
+   },
+   {
+    "id": 26,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794006738203,
+    "ackBy": null,
+    "resolvedAt": 1794006748083
+   },
+   {
+    "id": 27,
+    "deviceId": 15,
+    "deviceName": "opd-spt-OSS-stack2",
+    "ip": "172.16.3.235",
+    "severity": "info",
+    "kind": "latency",
+    "message": "opd-spt-OSS-stack2 มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794006898381,
+    "ackBy": null,
+    "resolvedAt": 1794006908237
+   },
+   {
+    "id": 28,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794007338704,
+    "ackBy": null,
+    "resolvedAt": 1794007348548
+   },
+   {
+    "id": 29,
+    "deviceId": -1,
+    "deviceName": "ฐานข้อมูล HIS (Master/Slave)",
+    "ip": "172.20.0.2 → 172.20.0.15",
+    "severity": "critical",
+    "kind": "db:repl_broken",
+    "message": "Replication หยุดทำงาน — IO thread: No, SQL thread: No",
+    "status": "resolved",
+    "created": 1794008505279,
+    "ackBy": null,
+    "resolvedAt": 1794025500341
+   },
+   {
+    "id": 30,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794009150104,
+    "ackBy": null,
+    "resolvedAt": 1794009159936
+   },
+   {
+    "id": 31,
+    "deviceId": 16,
+    "deviceName": "PCC",
+    "ip": "172.16.3.241",
+    "severity": "info",
+    "kind": "latency",
+    "message": "PCC มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794010361006,
+    "ackBy": null,
+    "resolvedAt": 1794010370918
+   },
+   {
+    "id": 32,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794012752868,
+    "ackBy": null,
+    "resolvedAt": 1794012762645
+   },
+   {
+    "id": 33,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794014544993,
+    "ackBy": null,
+    "resolvedAt": 1794014554885
+   },
+   {
+    "id": 34,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794015145449,
+    "ackBy": null,
+    "resolvedAt": 1794015155394
+   },
+   {
+    "id": 35,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794015745994,
+    "ackBy": null,
+    "resolvedAt": 1794015755867
+   },
+   {
+    "id": 36,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794016946937,
+    "ackBy": null,
+    "resolvedAt": 1794016956857
+   },
+   {
+    "id": 37,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794018148058,
+    "ackBy": null,
+    "resolvedAt": 1794018157924
+   },
+   {
+    "id": 38,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794019359133,
+    "ackBy": null,
+    "resolvedAt": 1794019368973
+   },
+   {
+    "id": 39,
+    "deviceId": 3,
+    "deviceName": "OPD_NEW_FL1",
+    "ip": "172.16.3.245",
+    "severity": "info",
+    "kind": "latency",
+    "message": "OPD_NEW_FL1 มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794019569301,
+    "ackBy": null,
+    "resolvedAt": 1794019579134
+   },
+   {
+    "id": 40,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794019959661,
+    "ackBy": null,
+    "resolvedAt": 1794019969491
+   },
+   {
+    "id": 41,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794020560138,
+    "ackBy": null,
+    "resolvedAt": 1794020569988
+   },
+   {
+    "id": 42,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794021160658,
+    "ackBy": null,
+    "resolvedAt": 1794021170512
+   },
+   {
+    "id": 43,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794021761169,
+    "ackBy": null,
+    "resolvedAt": 1794021771037
+   },
+   {
+    "id": 44,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794024773635,
+    "ackBy": null,
+    "resolvedAt": 1794024783499
+   },
+   {
+    "id": 45,
+    "deviceId": -1,
+    "deviceName": "ฐานข้อมูล HIS (Master/Slave)",
+    "ip": "172.20.0.2 → 172.20.0.15",
+    "severity": "warning",
+    "kind": "db:q:cbbb4e088d",
+    "message": "ข้อมูลไม่ตรงกัน: ข้อมูลถึงเมื่อวาน (ต้องตรงกัน 100%)",
+    "status": "resolved",
+    "created": 1794025697741,
+    "ackBy": "admin",
+    "resolvedAt": 1794029367532
+   },
+   {
+    "id": 46,
+    "deviceId": -1,
+    "deviceName": "ฐานข้อมูล HIS (Master/Slave)",
+    "ip": "172.20.0.2 → 172.20.0.15",
+    "severity": "warning",
+    "kind": "db:q:d24abf9f7f",
+    "message": "ข้อมูลไม่ตรงกัน: จำนวนผู้ป่วยทั้งหมด (HN) (ต่างกัน 3)",
+    "status": "resolved",
+    "created": 1794025697741,
+    "ackBy": "admin",
+    "resolvedAt": 1794025707223
+   },
+   {
+    "id": 47,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794026575707,
+    "ackBy": null,
+    "resolvedAt": 1794026585650
+   },
+   {
+    "id": 48,
+    "deviceId": 15,
+    "deviceName": "opd-spt-OSS-stack2",
+    "ip": "172.16.3.235",
+    "severity": "info",
+    "kind": "latency",
+    "message": "opd-spt-OSS-stack2 มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794028487583,
+    "ackBy": null,
+    "resolvedAt": 1794028497341
+   },
+   {
+    "id": 49,
+    "deviceId": 12,
+    "deviceName": "Chart-MA",
+    "ip": "172.16.3.249",
+    "severity": "info",
+    "kind": "latency",
+    "message": "Chart-MA มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794028497498,
+    "ackBy": null,
+    "resolvedAt": 1794028507341
+   },
+   {
+    "id": 50,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794030789368,
+    "ackBy": null,
+    "resolvedAt": 1794030799191
+   },
+   {
+    "id": 51,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794033191404,
+    "ackBy": null,
+    "resolvedAt": 1794033201241
+   },
+   {
+    "id": 52,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794036203941,
+    "ackBy": null,
+    "resolvedAt": 1794036213813
+   },
+   {
+    "id": 53,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794036804347,
+    "ackBy": null,
+    "resolvedAt": 1794036814231
+   },
+   {
+    "id": 54,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794037404857,
+    "ackBy": null,
+    "resolvedAt": 1794037414709
+   },
+   {
+    "id": 55,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794038605728,
+    "ackBy": null,
+    "resolvedAt": 1794038615640
+   },
+   {
+    "id": 56,
+    "deviceId": 10,
+    "deviceName": "ER100_1th",
+    "ip": "172.16.3.242",
+    "severity": "warning",
+    "kind": "down",
+    "message": "ER100_1th (172.16.3.242) ไม่ตอบสนอง ICMP",
+    "status": "resolved",
+    "created": 1794038846348,
+    "ackBy": null,
+    "resolvedAt": 1794038855825
+   },
+   {
+    "id": 57,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794039206111,
+    "ackBy": null,
+    "resolvedAt": 1794039225989
+   },
+   {
+    "id": 58,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794039806656,
+    "ackBy": null,
+    "resolvedAt": 1794039816481
+   },
+   {
+    "id": 59,
+    "deviceId": 3,
+    "deviceName": "OPD_NEW_FL1",
+    "ip": "172.16.3.245",
+    "severity": "info",
+    "kind": "latency",
+    "message": "OPD_NEW_FL1 มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794044780349,
+    "ackBy": null,
+    "resolvedAt": 1794044790292
+   },
+   {
+    "id": 60,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794046431703,
+    "ackBy": null,
+    "resolvedAt": 1794046441572
+   },
+   {
+    "id": 61,
+    "deviceId": 13,
+    "deviceName": "PP",
+    "ip": "172.16.3.247",
+    "severity": "warning",
+    "kind": "down",
+    "message": "PP (172.16.3.247) ไม่ตอบสนอง ICMP",
+    "status": "resolved",
+    "created": 1794046792850,
+    "ackBy": null,
+    "resolvedAt": 1794046801857
+   },
+   {
+    "id": 62,
+    "deviceId": 18,
+    "deviceName": "OPD-new-2th",
+    "ip": "172.16.3.252",
+    "severity": "info",
+    "kind": "latency",
+    "message": "OPD-new-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794048423483,
+    "ackBy": null,
+    "resolvedAt": 1794048433172
+   },
+   {
+    "id": 63,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794048833578,
+    "ackBy": null,
+    "resolvedAt": 1794048843456
+   },
+   {
+    "id": 64,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794050034800,
+    "ackBy": null,
+    "resolvedAt": 1794050044612
+   },
+   {
+    "id": 65,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794051846149,
+    "ackBy": null,
+    "resolvedAt": 1794051856080
+   },
+   {
+    "id": 66,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794053047247,
+    "ackBy": null,
+    "resolvedAt": 1794053057177
+   },
+   {
+    "id": 67,
+    "deviceId": -1,
+    "deviceName": "ฐานข้อมูล HIS (Master/Slave)",
+    "ip": "172.20.0.2 → 172.20.0.15",
+    "severity": "warning",
+    "kind": "db:slave_rw",
+    "message": "เครื่อง Slave ไม่ได้เปิด read_only — มีความเสี่ยงที่ข้อมูลจะถูกแก้ไขตรงที่ Slave จนไม่ตรงกับ Master",
+    "status": "resolved",
+    "created": 1794055136273,
+    "ackBy": "admin",
+    "resolvedAt": 1794056560529
+   },
+   {
+    "id": 68,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794055455928,
+    "ackBy": null,
+    "resolvedAt": 1794055465765
+   },
+   {
+    "id": 69,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794056056439,
+    "ackBy": null,
+    "resolvedAt": 1794056066290
+   },
+   {
+    "id": 70,
+    "deviceId": -1,
+    "deviceName": "ฐานข้อมูล HIS (Master/Slave)",
+    "ip": "172.20.0.2 → 172.20.0.15",
+    "severity": "critical",
+    "kind": "db:repl_broken",
+    "message": "Replication หยุดทำงาน — IO thread: No, SQL thread: No",
+    "status": "active",
+    "created": 1794057295550,
+    "ackBy": null,
+    "resolvedAt": null
+   },
+   {
+    "id": 71,
+    "deviceId": 10,
+    "deviceName": "ER100_1th",
+    "ip": "172.16.3.242",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100_1th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794057757803,
+    "ackBy": null,
+    "resolvedAt": 1794057767724
+   },
+   {
+    "id": 72,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794058458294,
+    "ackBy": null,
+    "resolvedAt": 1794058468185
+   },
+   {
+    "id": 73,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794059058808,
+    "ackBy": null,
+    "resolvedAt": 1794059068649
+   },
+   {
+    "id": 74,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794061472214,
+    "ackBy": null,
+    "resolvedAt": 1794061480448
+   },
+   {
+    "id": 75,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794062671471,
+    "ackBy": null,
+    "resolvedAt": 1794062681338
+   },
+   {
+    "id": 76,
+    "deviceId": 6,
+    "deviceName": "SVR-bk-DR",
+    "ip": "172.20.0.181",
+    "severity": "warning",
+    "kind": "down",
+    "message": "SVR-bk-DR (172.20.0.181) ไม่ตอบสนอง ICMP",
+    "status": "resolved",
+    "created": 1794063122353,
+    "ackBy": null,
+    "resolvedAt": 1794063131667,
+    "lastNotified": 1794063122353
+   },
+   {
+    "id": 77,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794063872382,
+    "ackBy": null,
+    "resolvedAt": 1794063882244
+   },
+   {
+    "id": 78,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794065683749,
+    "ackBy": null,
+    "resolvedAt": 1794065693619
+   },
+   {
+    "id": 79,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794066284179,
+    "ackBy": null,
+    "resolvedAt": 1794066294070
+   },
+   {
+    "id": 80,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794066884713,
+    "ackBy": null,
+    "resolvedAt": 1794066894565
+   },
+   {
+    "id": 81,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794067485044,
+    "ackBy": null,
+    "resolvedAt": 1794067494987
+   },
+   {
+    "id": 82,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794068085587,
+    "ackBy": null,
+    "resolvedAt": 1794068095468
+   },
+   {
+    "id": 83,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794068686046,
+    "ackBy": null,
+    "resolvedAt": 1794068695879
+   },
+   {
+    "id": 84,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794071698265,
+    "ackBy": null,
+    "resolvedAt": 1794071708159
+   },
+   {
+    "id": 85,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794075911499,
+    "ackBy": null,
+    "resolvedAt": 1794075921342
+   },
+   {
+    "id": 86,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794076511892,
+    "ackBy": null,
+    "resolvedAt": 1794076521742
+   },
+   {
+    "id": 87,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794077712736,
+    "ackBy": null,
+    "resolvedAt": 1794077722631
+   },
+   {
+    "id": 88,
+    "deviceId": 9,
+    "deviceName": "ER100-2th",
+    "ip": "172.16.3.238",
+    "severity": "info",
+    "kind": "latency",
+    "message": "ER100-2th มีค่า latency สูงเกินเกณฑ์ 100 ms",
+    "status": "resolved",
+    "created": 1794078913715,
+    "ackBy": null,
+    "resolvedAt": 1794078923548
+   }
+  ]
+ }
+}

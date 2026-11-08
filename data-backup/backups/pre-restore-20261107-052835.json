@@ -1,0 +1,201 @@
+{
+ "format": "smart-topology-backup",
+ "version": 1,
+ "app": "1.4.0",
+ "createdAt": "2026-11-06T22:28:35.654Z",
+ "createdBy": "admin",
+ "encrypted": false,
+ "data": {
+  "settings": {
+   "intervalSec": 10,
+   "timeoutMs": 1000,
+   "warnMs": 100,
+   "slaTarget": 99.8,
+   "siteName": "โรงพยาบาล"
+  },
+  "users": [
+   {
+    "id": 1,
+    "username": "admin",
+    "name": "ผู้ดูแลระบบ",
+    "role": "admin",
+    "pass": "4f3b7c92371e9c66b3b9c2e51f065694:fa92c5a3c45f1762804f6dae3c0566ada7b907025d16b86503fee4abb59bf30699aca4a41a06e401e4ee41bd1a04a3039b03b1e747d02427b21270e261a0740c",
+    "mustChange": false,
+    "created": 1794003820995,
+    "lastLogin": 1794003856149
+   }
+  ],
+  "devices": [],
+  "notify": {
+   "enabled": false,
+   "onDown": true,
+   "onRecover": true,
+   "onWarning": false,
+   "criticalOnly": false,
+   "suppressChildren": true,
+   "repeatMin": 0,
+   "publicUrl": "",
+   "channels": [],
+   "log": []
+  },
+  "mysql": {
+   "enabled": false,
+   "host": "",
+   "port": 3306,
+   "user": "",
+   "password": "",
+   "database": "smart_topology",
+   "ssl": false,
+   "rawLog": true,
+   "rawDays": 30,
+   "statDays": 90,
+   "hourDays": 0
+  },
+  "dbsync": {
+   "enabled": false,
+   "intervalSec": 60,
+   "tableIntervalMin": 30,
+   "lagWarn": 30,
+   "lagCrit": 300,
+   "notify": true,
+   "exactTables": "",
+   "reportEnabled": false,
+   "reportTimes": "09:05, 12:10, 16:10",
+   "reportOnlyDiff": false,
+   "master": {
+    "host": "",
+    "port": 3306,
+    "user": "",
+    "password": "",
+    "database": "",
+    "ssl": false
+   },
+   "slave": {
+    "host": "",
+    "port": 3306,
+    "user": "",
+    "password": "",
+    "database": "",
+    "ssl": false
+   },
+   "queries": []
+  },
+  "api": {
+   "enabled": true,
+   "cors": [],
+   "defaultRate": 120,
+   "trustProxy": false,
+   "keys": []
+  },
+  "wazuh": {
+   "enabled": false,
+   "url": "",
+   "user": "wazuh",
+   "password": "",
+   "verifyTls": false,
+   "intervalMin": 5,
+   "scaMax": 20,
+   "pushEnabled": false,
+   "pushMinSeverity": "warning",
+   "inboundEnabled": true,
+   "inboundMinLevel": 7,
+   "inboundNotifyLevel": 12,
+   "inboundAutoResolveMin": 60,
+   "agentAlerts": true
+  },
+  "backup": {
+   "autoEnabled": true,
+   "time": "02:30",
+   "keep": 14,
+   "includeAlerts": false,
+   "lastAuto": null
+  },
+  "seq": {
+   "device": 0,
+   "alert": 0,
+   "user": 1
+  },
+  "inventory": {
+   "settings": {
+    "intervalMin": 60,
+    "staleDays": 3,
+    "lowDiskPct": 10,
+    "trackSoftware": true,
+    "trackIp": true,
+    "alertHardware": true
+   },
+   "assets": [],
+   "changes": [],
+   "seq": {
+    "asset": 0,
+    "change": 0
+   }
+  },
+  "ipscan": {
+   "settings": {
+    "concurrency": 64,
+    "timeoutMs": 800,
+    "ports": [
+     445,
+     3389,
+     135,
+     139,
+     22,
+     80,
+     443,
+     9100,
+     554,
+     8080
+    ],
+    "resolveNames": true,
+    "schedule": {
+     "enabled": false,
+     "everyHours": 24,
+     "at": "01:00"
+    },
+    "lastScheduled": 0
+   },
+   "ranges": [
+    {
+     "id": "dc3f85d716",
+     "name": "vlan16",
+     "spec": "172.16.0.0/22",
+     "vlan": "16",
+     "note": "vlan16",
+     "enabled": true,
+     "count": 1022,
+     "first": "172.16.0.1",
+     "last": "172.16.3.254",
+     "created": 1794003986438
+    },
+    {
+     "id": "20f404fccb",
+     "name": "vlan17",
+     "spec": "172.17.0.0/22",
+     "vlan": "17",
+     "note": "vlan17",
+     "enabled": true,
+     "count": 1022,
+     "first": "172.17.0.1",
+     "last": "172.17.3.254",
+     "created": 1794004015396
+    },
+    {
+     "id": "f7eb7442b3",
+     "name": "vlan18",
+     "spec": "172.18.0.0/22",
+     "vlan": "18",
+     "note": "vlan18",
+     "enabled": true,
+     "count": 1022,
+     "first": "172.18.0.1",
+     "last": "172.18.3.254",
+     "created": 1794004043204
+    }
+   ],
+   "results": {},
+   "history": []
+  },
+  "alerts": []
+ }
+}
